@@ -9,7 +9,11 @@ public class Turret : MonoBehaviour
     public string enemyTag = "Enemy";
     public Transform turretHead;
     public float turretRotationSpeed = 10f;
+    public float fireRate = 1f;
+    private float fireCountdown = 0f;
 
+    public GameObject bulletPrefab;
+    public Transform firePoint;
     private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -27,7 +31,16 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(turretHead.rotation, lookRotation, Time.deltaTime * turretRotationSpeed).eulerAngles;
         turretHead.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
+        if (fireCountdown <= 0 )
+        {
+            Shoot();
+            fireCountdown = 1f/fireRate;
+        }
+
+        fireCountdown -= Time.deltaTime;
     }
+
+   
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
@@ -56,6 +69,17 @@ public class Turret : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    private void Shoot()
+    {
+        GameObject bulletShot = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletShot.GetComponent<Bullet>();
+
+        if(bullet != null)
+        {
+            bullet.GetTarget(target);
+        }
     }
 
 }
