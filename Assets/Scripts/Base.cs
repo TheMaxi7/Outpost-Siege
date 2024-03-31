@@ -25,8 +25,8 @@ public class Base : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-            return;
+        //if (EventSystem.current.IsPointerOverGameObject())
+            //return;
         if (buildManager.GetTurretToBuild() == null)
             return;
         
@@ -41,8 +41,8 @@ public class Base : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-            return;
+        //if (EventSystem.current.IsPointerOverGameObject())
+            //return;
         if (buildManager.GetTurretToBuild() == null)
             return;
         rend.material.color = hoverColor;

@@ -860,7 +860,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2016556998}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: PurchaseBasicTurret
+        m_MethodName: SelectBasicTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1231,6 +1231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicTurretPrefab: {fileID: 1000012174300454, guid: 8a4fca54c9faa3449bcff12193992420,
+    type: 3}
+  missileTurretPrefab: {fileID: 1000013566905100, guid: b5ceca2fab4f06f49aa235f4f428275a,
     type: 3}
 --- !u!1001 &591708970
 PrefabInstance:
@@ -2064,7 +2066,7 @@ GameObject:
   - component: {fileID: 1279199443}
   - component: {fileID: 1279199442}
   m_Layer: 0
-  m_Name: BaseTurret (1)
+  m_Name: MissileTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2152,7 +2154,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1279199444}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2016556998}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: SelectMissileTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1279199444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2173,7 +2187,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5e68c87257bc6042a62746de7037c22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7897b3cb75e8f9742a9cc93646018367, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
