@@ -11,6 +11,9 @@ public class Base : MonoBehaviour
     public Vector3 offset;
     private GameObject turret;
     BuildManager buildManager;
+    private GameObject previewObject;
+    bool isOccupied = false;
+
     void Start()
     {
         buildManager = BuildManager.instance;
@@ -20,13 +23,11 @@ public class Base : MonoBehaviour
 
     void Update()
     {
-        
+       
     }
 
     private void OnMouseDown()
     {
-        //if (EventSystem.current.IsPointerOverGameObject())
-            //return;
         if (buildManager.GetTurretToBuild() == null)
             return;
         
@@ -37,19 +38,50 @@ public class Base : MonoBehaviour
 
         GameObject turretToBuild = buildManager.GetTurretToBuild();
         turret = Instantiate(turretToBuild,transform.position + offset, transform.rotation);
-
+        isOccupied = true;
     }
     private void OnMouseEnter()
     {
-        //if (EventSystem.current.IsPointerOverGameObject())
-            //return;
         if (buildManager.GetTurretToBuild() == null)
             return;
-        rend.material.color = hoverColor;
+        if (isOccupied == false)
+        {
+            rend.material.color = hoverColor;
+            StartShowingPlacementPreview(buildManager.GetTurretToBuild());
+        }
     }
 
     private void OnMouseExit()
     {
         rend.material.color = startColor;
+        StopShowingPreview();
     }
+
+    public void StopShowingPreview()
+    {
+        if (previewObject != null)
+            Destroy(previewObject);
+    }
+
+
+    public void StartShowingPlacementPreview(GameObject prefab)
+    {
+        previewObject = Instantiate(prefab, transform.position + offset, transform.rotation);
+        PreparePreview(previewObject);
+    }
+
+    private void PreparePreview(GameObject previewObject)
+    {
+        Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            Material[] materials = renderer.materials;
+            for (int i = 0; i < materials.Length; i++)
+            {
+                materials[i] = rend.material;
+            }
+            renderer.materials = materials;
+        }
+    }
+
 }

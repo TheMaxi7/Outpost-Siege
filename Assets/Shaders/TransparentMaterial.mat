@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2461827491430773812
+--- !u!114 &-694888787016700628
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_GridRectTransparent
-  m_Shader: {fileID: -6465566751694194690, guid: e6bc11c7730fae0438e3900f2c17ad95,
+  m_Name: TransparentMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: e5a1784e5ec8c4e47a39d17a8ed1369d,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -53,5 +53,6 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 0.3333333}
   m_BuildTextureStacks: []

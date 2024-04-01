@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab71dfdf6449f2f4ca79066d4e4cb1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 15
+  attackRange: 25
   enemyTag: Enemy
   turretHead: {fileID: 4000010304338452}
   turretRotationSpeed: 10
