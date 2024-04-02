@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 2103355685795590039}
   m_Layer: 0
   m_Name: SlowEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,14 +277,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3240927596996231976}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5953137, y: 0, z: 0, w: 0.8034934}
-  m_LocalPosition: {x: -0, y: 4.5, z: 4}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5564033010612469838}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -73.07, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9052119314682241913
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 8703723695526793473}
   m_Layer: 0
   m_Name: SlowEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,8 +458,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4752768213281065193}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.59531575, y: -0, z: -0, w: 0.8034919}
-  m_LocalPosition: {x: 2.717245, y: -0.5586176, z: -0.012710571}
+  m_LocalRotation: {x: 0, y: 0.8034934, z: 0.5953137, w: 0}
+  m_LocalPosition: {x: 2.717245, y: 3.53, z: -1.26}
   m_LocalScale: {x: 184.85301, y: 184.85301, z: 184.85301}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -469,7 +469,7 @@ Transform:
   - {fileID: 4783837173545285187}
   - {fileID: 8891740476537142038}
   m_Father: {fileID: 1375281884531334486}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -73.07, y: 180, z: 0}
 --- !u!33 &4921191285001566342
 MeshFilter:
   m_ObjectHideFlags: 0
