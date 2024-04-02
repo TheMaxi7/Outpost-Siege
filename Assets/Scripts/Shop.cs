@@ -20,4 +20,14 @@ public class Shop : MonoBehaviour
     {
         buildManager.SetTurretToBuild(buildManager.missileTurretPrefab);
     }
+
+    public void SelectLaserTurret()
+    {
+        buildManager.SetTurretToBuild(buildManager.laserTurretPrefab);
+    }
+
+    public void SelectSniperTurret()
+    {
+        buildManager.SetTurretToBuild(buildManager.sniperTurretPrefab);
+    }
 }

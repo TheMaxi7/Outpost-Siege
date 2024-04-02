@@ -1042,9 +1042,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5e68c87257bc6042a62746de7037c22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd1d5180df160be42b0397373f4e14f6, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1382,9 +1382,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf700d96d9c58245b228626832acfc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicTurretPrefab: {fileID: 1000012174300454, guid: 8a4fca54c9faa3449bcff12193992420,
+  basicTurretPrefab: {fileID: 7805990606206033026, guid: 712f2e12a5c8adc4b8339c21b07da9d3,
     type: 3}
-  missileTurretPrefab: {fileID: 1000013566905100, guid: b5ceca2fab4f06f49aa235f4f428275a,
+  missileTurretPrefab: {fileID: 8884192567179873979, guid: ea8db8644934ce94990553c447071fad,
+    type: 3}
+  laserTurretPrefab: {fileID: 399199875858614154, guid: fd52337c3d34a7f42a2440fa6eacb429,
+    type: 3}
+  sniperTurretPrefab: {fileID: 309614449880250199, guid: ef44e9ca874ca44489c96a911860ba9a,
     type: 3}
 --- !u!1 &663792969
 GameObject:
@@ -1929,7 +1933,7 @@ GameObject:
   - component: {fileID: 1100337710}
   - component: {fileID: 1100337709}
   m_Layer: 5
-  m_Name: BaseTurret (3)
+  m_Name: LaserTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2017,7 +2021,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1100337711}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2016556998}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: SelectLaserTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1100337711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2038,9 +2054,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5e68c87257bc6042a62746de7037c22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed04fec2671fed04aaab9e910b117fbb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2685,9 +2701,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7897b3cb75e8f9742a9cc93646018367, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b84f3b4021bf384dba0e193fe68e06e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2717,7 +2733,7 @@ GameObject:
   - component: {fileID: 1352064032}
   - component: {fileID: 1352064031}
   m_Layer: 5
-  m_Name: BaseTurret (2)
+  m_Name: SniperTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2805,7 +2821,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1352064033}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2016556998}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: SelectSniperTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1352064033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2826,9 +2854,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5e68c87257bc6042a62746de7037c22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d820cc99d0b9214da8a3cfc10899d35, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
