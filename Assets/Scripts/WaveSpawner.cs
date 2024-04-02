@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public Transform[] enemyPrefab;
     public float cdWaveTimer = 5f;
     private float cd = 2f;
-    public Transform spawnPoint;
+    public Transform[] spawnPoint;
     private int waveNumber = 1;
     private void Update()
     {
@@ -32,7 +32,12 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        for (int i = 0;i < spawnPoint.Length;i++)
+        {
+            Transform enemyToIstantiate = enemyPrefab[Random.Range(0, enemyPrefab.Length)];
+            Instantiate(enemyToIstantiate, spawnPoint[i].position, spawnPoint[i].rotation);
+        }
+        
     }
 }
 
