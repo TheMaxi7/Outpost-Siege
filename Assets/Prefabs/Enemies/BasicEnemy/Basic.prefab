@@ -261,8 +261,9 @@ GameObject:
   - component: {fileID: 2459845227488435214}
   - component: {fileID: 2656834095345107011}
   - component: {fileID: 6402970649004592000}
-  - component: {fileID: 6395903332012069009}
-  - component: {fileID: 8524145426359549944}
+  - component: {fileID: 2165414663764835326}
+  - component: {fileID: -634915224379564887}
+  - component: {fileID: -3215151493128864066}
   m_Layer: 0
   m_Name: Basic
   m_TagString: Untagged
@@ -350,8 +351,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf5b136c4c53b94c8181a72dad668e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
---- !u!135 &6395903332012069009
+--- !u!195 &2165414663764835326
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518537415879192878}
+  m_Enabled: 1
+  m_AgentTypeID: -1372625422
+  m_Radius: 0.5
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 10
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!135 &-634915224379564887
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -361,7 +383,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -372,7 +394,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &8524145426359549944
+--- !u!54 &-3215151493128864066
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -381,8 +403,8 @@ Rigidbody:
   m_GameObject: {fileID: 4518537415879192878}
   serializedVersion: 4
   m_Mass: 10
-  m_Drag: 100000
-  m_AngularDrag: 100000
+  m_Drag: 5
+  m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -396,6 +418,6 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
