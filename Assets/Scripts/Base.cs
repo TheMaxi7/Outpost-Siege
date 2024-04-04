@@ -13,7 +13,7 @@ public class Base : MonoBehaviour
     BuildManager buildManager;
     private GameObject previewObject;
     bool isOccupied = false;
-
+    private int selectedTurretCost;
     void Start()
     {
         buildManager = BuildManager.instance;
@@ -37,8 +37,14 @@ public class Base : MonoBehaviour
         }
 
         GameObject turretToBuild = buildManager.GetTurretToBuild();
-        turret = Instantiate(turretToBuild,transform.position + offset, transform.rotation);
-        isOccupied = true;
+        selectedTurretCost = turretToBuild.GetComponent<Turret>().turretCost; 
+        if (selectedTurretCost <= UiManager.coinsCount) 
+        {
+            turret = Instantiate(turretToBuild, transform.position + offset, transform.rotation);
+            UiManager.coinsCount -= selectedTurretCost;
+            isOccupied = true;
+        }
+
     }
     private void OnMouseEnter()
     {

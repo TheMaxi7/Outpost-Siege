@@ -9,6 +9,7 @@ public class Missile : MonoBehaviour
     public float speed = 50f;
     public GameObject impactEffect;
     public float explosionRadius;
+    public int damage;
 
     public void GetTarget(Transform _target)
     {
@@ -46,7 +47,8 @@ public class Missile : MonoBehaviour
         Explode();
 
         Destroy(gameObject);
-        Destroy(target.gameObject);
+        target.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+        
     }
 
     void Explode()

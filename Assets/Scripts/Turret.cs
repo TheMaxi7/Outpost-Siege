@@ -23,8 +23,8 @@ public class Turret : MonoBehaviour
     [Header("Setup Fields")]
     public string enemyTag = "Enemy";
     public Transform turretHead;
-
     public Transform firePoint;
+    public int turretCost = 0;
 
     private void Start()
     {

@@ -122,6 +122,7 @@ MonoBehaviour:
   speed: 70
   impactEffect: {fileID: 2504214343621411470, guid: 3ed0d324122d7b24eaec75c55c74aafc,
     type: 3}
+  damage: 25
 --- !u!1001 &177083727193952645
 PrefabInstance:
   m_ObjectHideFlags: 0
