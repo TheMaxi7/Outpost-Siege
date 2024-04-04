@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour
         }
 
         transform.Translate(direction.normalized * distanceThisFrame, Space.World);
+        transform.LookAt(target);
     }
 
 

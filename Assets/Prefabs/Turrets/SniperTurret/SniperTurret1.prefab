@@ -46,13 +46,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab71dfdf6449f2f4ca79066d4e4cb1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 15
+  attackRange: 70
+  turretRotationSpeed: 15
+  isAOE: 0
+  fireRate: 1
+  bulletPrefab: {fileID: 1205901815250266799, guid: d86298b0ca2805c4e8ef5d960a8de278,
+    type: 3}
+  useLaser: 0
+  lineRenderer: {fileID: 0}
   enemyTag: Enemy
   turretHead: {fileID: 7902971027671960324}
-  turretRotationSpeed: 10
-  fireRate: 1
-  bulletPrefab: {fileID: 1205901815250266799, guid: 65f37f8276c8a47468285e1bc26ff4bc,
-    type: 3}
   firePoint: {fileID: 6080640556295055125}
 --- !u!1 &1259652978338378820
 GameObject:

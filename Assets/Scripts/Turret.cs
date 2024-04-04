@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour
     public float turretRotationSpeed = 10f;
 
     [Header("Use bullets (Default)")]
+    public bool isAOE = false;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
     public GameObject bulletPrefab;
@@ -23,10 +24,8 @@ public class Turret : MonoBehaviour
     public string enemyTag = "Enemy";
     public Transform turretHead;
 
-
-
-
     public Transform firePoint;
+
     private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -113,12 +112,24 @@ public class Turret : MonoBehaviour
     private void Shoot()
     {
         GameObject bulletShot = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = bulletShot.GetComponent<Bullet>();
-
-        if (bullet != null)
+        if (!isAOE)
         {
-            bullet.GetTarget(target);
+            Bullet bullet = bulletShot.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                bullet.GetTarget(target);
+            }
         }
+        else
+        {
+            Missile missile = bulletShot.GetComponent<Missile>();
+            if (missile != null)
+            {
+                missile.GetTarget(target);
+            }
+        }
+            
+
     }
 
 }
