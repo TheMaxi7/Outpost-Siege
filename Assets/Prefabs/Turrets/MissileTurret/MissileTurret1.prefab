@@ -287,3 +287,4 @@ MonoBehaviour:
   enemyTag: Enemy
   turretHead: {fileID: 836943092226758111}
   firePoint: {fileID: 4095702525528291250}
+  turretCost: 75

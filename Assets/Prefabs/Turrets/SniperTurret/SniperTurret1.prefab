@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 70
-  turretRotationSpeed: 15
+  turretRotationSpeed: 20
   isAOE: 0
-  fireRate: 1
+  fireRate: 2
   bulletPrefab: {fileID: 1205901815250266799, guid: d86298b0ca2805c4e8ef5d960a8de278,
     type: 3}
   useLaser: 0
@@ -57,6 +57,7 @@ MonoBehaviour:
   enemyTag: Enemy
   turretHead: {fileID: 7902971027671960324}
   firePoint: {fileID: 6080640556295055125}
+  turretCost: 120
 --- !u!1 &1259652978338378820
 GameObject:
   m_ObjectHideFlags: 0
