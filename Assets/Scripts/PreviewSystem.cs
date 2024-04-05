@@ -24,7 +24,7 @@ public class PreviewSystem : MonoBehaviour
     {
         previewObject = Instantiate(prefab);
         PreparePreview(previewObject);
-        //PrepareCursor(size);
+
     }
 
     private void PrepareCursor(Vector2Int size)

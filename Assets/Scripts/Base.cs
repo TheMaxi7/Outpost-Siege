@@ -41,6 +41,7 @@ public class Base : MonoBehaviour
         if (selectedTurretCost <= UiManager.coinsCount) 
         {
             turret = Instantiate(turretToBuild, transform.position + offset, transform.rotation);
+            turret.GetComponent<Turret>().canShoot = true;
             UiManager.coinsCount -= selectedTurretCost;
             isOccupied = true;
         }

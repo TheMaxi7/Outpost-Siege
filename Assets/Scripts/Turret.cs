@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
@@ -25,21 +27,26 @@ public class Turret : MonoBehaviour
     public Transform turretHead;
     public Transform firePoint;
     public int turretCost = 0;
+    public bool canShoot = false;
 
     private void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        if (canShoot)
+        {
+            InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        }
     }
 
     private void Update()
     {
+
         if (target == null)
         {
             if (useLaser)
             {
                 if (lineRenderer.enabled)
                     lineRenderer.enabled = false;
-                
+
             }
             return;
         }
@@ -65,8 +72,8 @@ public class Turret : MonoBehaviour
 
     void Laser()
     {
-        if(!lineRenderer.enabled)
-            lineRenderer.enabled=true;
+        if (!lineRenderer.enabled)
+            lineRenderer.enabled = true;
 
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, target.position);
@@ -74,10 +81,10 @@ public class Turret : MonoBehaviour
 
     void LockOnTarget()
     {
-        Vector3 targetDirection = target.position - transform.position;
+        Vector3 targetDirection = target.position - firePoint.position;
         Quaternion lookRotation = Quaternion.LookRotation(targetDirection);
         Vector3 rotation = Quaternion.Lerp(turretHead.rotation, lookRotation, Time.deltaTime * turretRotationSpeed).eulerAngles;
-        turretHead.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        turretHead.rotation = Quaternion.Euler(rotation.x, rotation.y, 0f);
     }
     void UpdateTarget()
     {
@@ -86,14 +93,22 @@ public class Turret : MonoBehaviour
         GameObject nearestEnemy = null;
         foreach (GameObject enemy in enemies)
         {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            RaycastHit hit;
+            if (Physics.Raycast(firePoint.position, enemy.transform.position - firePoint.position, out hit, attackRange))
             {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+                //Debug.DrawLine(firePoint.position, hit.point, Color.red, 20f);
+                if (hit.collider.CompareTag(enemyTag))
+                {
+                    float distanceToEnemy = Vector3.Distance(firePoint.position, enemy.transform.position);
+                    if (distanceToEnemy < shortestDistance && distanceToEnemy <= attackRange)
+                    {
+                        shortestDistance = distanceToEnemy;
+                        nearestEnemy = enemy;
+                    }
+                }
             }
-        }
 
+        }
         if (nearestEnemy != null && shortestDistance <= attackRange)
         {
             target = nearestEnemy.transform;
@@ -102,6 +117,7 @@ public class Turret : MonoBehaviour
         {
             target = null;
         }
+
     }
     private void OnDrawGizmosSelected()
     {
@@ -128,7 +144,7 @@ public class Turret : MonoBehaviour
                 missile.GetTarget(target);
             }
         }
-            
+
 
     }
 

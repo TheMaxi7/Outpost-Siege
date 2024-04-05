@@ -58,6 +58,7 @@ MonoBehaviour:
   turretHead: {fileID: 7902971027671960324}
   firePoint: {fileID: 6080640556295055125}
   turretCost: 120
+  canShoot: 0
 --- !u!1 &1259652978338378820
 GameObject:
   m_ObjectHideFlags: 0
