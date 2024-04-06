@@ -56,10 +56,19 @@ public class Base : MonoBehaviour
             rend.material.color = hoverColor;
             StartShowingPlacementPreview(buildManager.GetTurretToBuild());
         }
+        else
+        {
+           turret.GetComponent<Turret>().rangeIndicator.enabled = true;
+        }
+        
     }
 
     private void OnMouseExit()
     {
+        if (isOccupied)
+        {
+            turret.GetComponent<Turret>().rangeIndicator.enabled = false;
+        }
         rend.material.color = startColor;
         StopShowingPreview();
     }
@@ -73,15 +82,24 @@ public class Base : MonoBehaviour
 
     public void StartShowingPlacementPreview(GameObject prefab)
     {
+        
         previewObject = Instantiate(prefab, transform.position + offset, transform.rotation);
         PreparePreview(previewObject);
     }
 
     private void PreparePreview(GameObject previewObject)
     {
+        
         Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
+        
         foreach (Renderer renderer in renderers)
         {
+            Debug.Log(renderer);
+            if (renderer.GetComponent<CanvasRenderer>() != null)
+            {
+                continue;
+            }
+
             Material[] materials = renderer.materials;
             for (int i = 0; i < materials.Length; i++)
             {

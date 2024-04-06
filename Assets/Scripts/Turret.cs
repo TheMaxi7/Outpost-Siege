@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Turret : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Turret : MonoBehaviour
     public Transform firePoint;
     public int turretCost = 0;
     public bool canShoot = false;
+    public Image rangeIndicator;
 
     private void Start()
     {
@@ -35,6 +37,8 @@ public class Turret : MonoBehaviour
         {
             InvokeRepeating("UpdateTarget", 0f, 0.5f);
         }
+        rangeIndicator.rectTransform.sizeDelta = new Vector2(attackRange, attackRange);
+        rangeIndicator.enabled = true;
     }
 
     private void Update()
