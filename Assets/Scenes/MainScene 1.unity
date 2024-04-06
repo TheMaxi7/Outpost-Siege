@@ -1747,6 +1747,7 @@ GameObject:
   - component: {fileID: 561164812}
   - component: {fileID: 561164814}
   - component: {fileID: 561164815}
+  - component: {fileID: 561164816}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1827,6 +1828,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   livesText: {fileID: 2123946235}
   coinsText: {fileID: 1139068370}
+--- !u!114 &561164816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561164811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fc259f958d35444b71fd2eff226030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0.5, z: 0}
+  previewMaterial: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1 &663792969
 GameObject:
   m_ObjectHideFlags: 0
