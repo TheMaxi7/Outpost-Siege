@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
@@ -14,7 +16,12 @@ public class AbilitiesManager : MonoBehaviour
     public Image ability2Indicator;
     public Image ability3Indicator;
 
+    public GameObject bomb1Prefab;
+    public GameObject bomb2Prefab;
+    public GameObject bomb3Prefab;
 
+    public Transform deployPoint;
+    private Vector3 targetPoint;
     private Vector3 position;
     private RaycastHit hit;
     private Ray ray;
@@ -47,6 +54,16 @@ public class AbilitiesManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             ability1Canvas.transform.position = hit.point;
+            if (Input.GetMouseButtonDown(0) && ability1Indicator.enabled == true && ability1Canvas.enabled == true)
+            {
+                targetPoint = hit.point;
+                Shoot(bomb1Prefab, deployPoint);
+            }
+            else if (Input.GetMouseButtonDown(1) && ability1Indicator.enabled == true && ability1Canvas.enabled == true)
+            {
+                ToggleAbility(ability1Canvas, ability1Indicator);
+            }
+
         }
     }
 
@@ -90,8 +107,10 @@ public class AbilitiesManager : MonoBehaviour
         ToggleAbility(ability3Canvas, ability3Indicator);
     }
 
-    private void Shoot()
+    private void Shoot(GameObject bombPrefab, Transform deployPoint)
     {
-        //activate ability
+        GameObject bombDeployed = Instantiate(bombPrefab, deployPoint.position, deployPoint.rotation);
+        Bomb bomb = bombDeployed.GetComponent<Bomb>();
+        bomb.GetTargetPoint(targetPoint);
     }
 }
