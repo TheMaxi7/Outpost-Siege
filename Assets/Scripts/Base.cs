@@ -71,6 +71,7 @@ public class Base : MonoBehaviour
         else
         {
             turret.GetComponent<Turret>().rangeIndicator.enabled = true;
+            //turret.GetComponent<Turret>().domeIndicator.SetActive(true);
         }
 
     }
@@ -80,6 +81,7 @@ public class Base : MonoBehaviour
         if (isOccupied)
         {
             turret.GetComponent<Turret>().rangeIndicator.enabled = false;
+            //turret.GetComponent<Turret>().domeIndicator.SetActive(false);
         }
         rend.material.color = startColor;
         previewSystem.StopShowingPreview();

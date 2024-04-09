@@ -31,6 +31,7 @@ public class Turret : MonoBehaviour
     public int turretCost = 0;
     public bool canShoot = false;
     public Image rangeIndicator;
+    //public GameObject domeIndicator;
 
     private void Start()
     {
@@ -38,7 +39,8 @@ public class Turret : MonoBehaviour
         {
             InvokeRepeating("UpdateTarget", 0f, 0.5f);
         }
-        rangeIndicator.rectTransform.sizeDelta = new Vector2(attackRange, attackRange);
+        rangeIndicator.rectTransform.sizeDelta = new Vector2(2*attackRange, 2*attackRange);
+        //domeIndicator.transform.localScale = new Vector3(attackRange, attackRange, attackRange);
         rangeIndicator.enabled = true;
     }
 

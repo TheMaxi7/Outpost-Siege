@@ -42,7 +42,7 @@ public class PreviewSystem : MonoBehaviour
         foreach (Renderer renderer in renderers)
         {
             Debug.Log(renderer);
-            if (renderer.GetComponent<CanvasRenderer>() != null)
+            if (renderer.name == "3dRange")
             {
                 continue;
             }
