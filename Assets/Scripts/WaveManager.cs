@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class WaveManager : MonoBehaviour
 {
     public static int waveNumber = 0;
-    public static int waveType = 0;
+    public static int waveType = 2;
     public static bool spawn = false;
     private float timeBetweenWaves = 15f;
     private float timer;

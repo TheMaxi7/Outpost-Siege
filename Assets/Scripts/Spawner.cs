@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         spawnLocation = GetComponent<Transform>();
-        spawnLocation.position -= new Vector3(0f, 0.5f, 0f);
+        //spawnLocation.position -= new Vector3(0f, 0.5f, 0f);
     }
 
     void Update()
