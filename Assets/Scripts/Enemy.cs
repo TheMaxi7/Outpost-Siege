@@ -7,30 +7,44 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     private float distanceToTarget;
-    private NavMeshAgent agent;
 
     public float health;
     private float startingHealth;
     public int value;
-
-
+    public int moveSpeed = 5;
     public GameObject deathEffect;
 
     public Image healthBar;
+
+    public Transform[] roadToExit;
+    private Transform nextWaypoint;
+    private int waypointCounter = 0;
+    private Vector3 moveDirection;
     private void Start()
     {
+        nextWaypoint = roadToExit[0];
         startingHealth = health;
-        agent = GetComponent<NavMeshAgent>();
+        moveDirection = (nextWaypoint.position - transform.position).normalized;
     }
 
     private void Update()
     {
-        distanceToTarget = Vector3.Distance(transform.position, agent.destination);
-        //Debug.Log(distanceToTarget);
-        if (distanceToTarget <= 5)
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        distanceToTarget = Vector3.Distance(transform.position, nextWaypoint.position);
+        if (distanceToTarget <= 1)
         {
-            UiManager.livesCount--;
-            Die();
+            NextWaypoint();
+            moveDirection = (nextWaypoint.position - transform.position).normalized;
+            
+        }
+    }
+
+    private void NextWaypoint()
+    {
+        if (waypointCounter < roadToExit.Length)
+        {
+            waypointCounter++;
+            nextWaypoint = roadToExit[waypointCounter];
         }
     }
 

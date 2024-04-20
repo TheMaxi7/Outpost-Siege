@@ -7202,7 +7202,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint4
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -7322,7 +7322,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -22730,7 +22730,7 @@ GameObject:
   - component: {fileID: 692617222}
   - component: {fileID: 692617221}
   - component: {fileID: 692617220}
-  - component: {fileID: 692617219}
+  - component: {fileID: 692617224}
   m_Layer: 0
   m_Name: StartBase (2)
   m_TagString: Untagged
@@ -22738,25 +22738,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &692617219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692617218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 1
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!65 &692617220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22843,6 +22824,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &692617224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692617218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45b3f85ff6100d418355609bda6ba37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 222025392}
+  basicEnemyPrefab: {fileID: 4916838083521017606, guid: 3d24d74e90223ec41bd34d4bc8fa5467,
+    type: 3}
+  fastEnemyPrefab: {fileID: 0}
+  bigEnemyPrefab: {fileID: 0}
+  spawnLocation: {fileID: 692617223}
 --- !u!1001 &692849467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41375,6 +41375,7 @@ GameObject:
   - component: {fileID: 1324464173}
   - component: {fileID: 1324464172}
   - component: {fileID: 1324464171}
+  - component: {fileID: 1324464174}
   m_Layer: 0
   m_Name: StartBase (5)
   m_TagString: Untagged
@@ -41468,6 +41469,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324464168}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1324464174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324464168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45b3f85ff6100d418355609bda6ba37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1445674390}
+  - {fileID: 222025392}
+  basicEnemyPrefab: {fileID: 4916838083521017606, guid: 3d24d74e90223ec41bd34d4bc8fa5467,
+    type: 3}
+  fastEnemyPrefab: {fileID: 0}
+  bigEnemyPrefab: {fileID: 0}
+  spawnLocation: {fileID: 1324464169}
 --- !u!1 &1327472144
 GameObject:
   m_ObjectHideFlags: 0
@@ -41480,7 +41501,7 @@ GameObject:
   - component: {fileID: 1327472149}
   - component: {fileID: 1327472148}
   - component: {fileID: 1327472147}
-  - component: {fileID: 1327472146}
+  - component: {fileID: 1327472150}
   m_Layer: 0
   m_Name: StartBase (4)
   m_TagString: Untagged
@@ -41503,25 +41524,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1327472146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327472144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 1
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!65 &1327472147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41593,6 +41595,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327472144}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1327472150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327472144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45b3f85ff6100d418355609bda6ba37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 226978470}
+  - {fileID: 1720209144}
+  - {fileID: 222025392}
+  basicEnemyPrefab: {fileID: 4916838083521017606, guid: 3d24d74e90223ec41bd34d4bc8fa5467,
+    type: 3}
+  fastEnemyPrefab: {fileID: 0}
+  bigEnemyPrefab: {fileID: 0}
+  spawnLocation: {fileID: 1327472145}
 --- !u!1001 &1339618542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44948,7 +44971,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -53848,7 +53871,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -59067,16 +59090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9952c63664fcf1047888cceda74fddc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab:
-  - {fileID: 4916838083521017606, guid: 3d24d74e90223ec41bd34d4bc8fa5467, type: 3}
-  cdWaveTimer: 5
-  spawnPoint:
-  - {fileID: 1324464169}
-  - {fileID: 0}
-  - {fileID: 692617223}
-  - {fileID: 0}
-  - {fileID: 1327472145}
-  target: {fileID: 582566373}
 --- !u!4 &1922730956
 Transform:
   m_ObjectHideFlags: 0
