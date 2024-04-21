@@ -109,12 +109,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437313607789798}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.1999999, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4722236510932744}
+  m_Father: {fileID: 4597034265451690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33557720888194326
 MeshFilter:
@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 4597034265451690}
   - component: {fileID: 33575077343818718}
   - component: {fileID: 23884825674443308}
+  - component: {fileID: 5448324941575294043}
   m_Layer: 0
   m_Name: CannonG_Barrel02
   m_TagString: Untagged
@@ -193,10 +194,11 @@ Transform:
   m_GameObject: {fileID: 1454602631919742}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.1999999, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4914773783399600}
   - {fileID: 4703932692914808}
   m_Father: {fileID: 4722236510932744}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -250,6 +252,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &5448324941575294043
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454602631919742}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1998befdc331f434cb4551f87c3a69b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1543343654471068
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +303,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4597034265451690}
-  - {fileID: 4914773783399600}
   m_Father: {fileID: 4595654756050798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1875090778556656
@@ -330,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab71dfdf6449f2f4ca79066d4e4cb1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 5448324941575294043}
   turretType: 1
   attackRange: 5
   turretRotationSpeed: 10

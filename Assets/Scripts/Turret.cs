@@ -22,6 +22,8 @@ public class Turret : MonoBehaviour
     public GameObject bulletPrefab;
 
     [Header("Use laser")]
+    public ParticleSystem muzzleLaserEffect;
+    public ParticleSystem LaserEffectHit;
     public bool useLaser = false;
     public float damageOverTime = 40f;
     public LineRenderer lineRenderer;
@@ -34,6 +36,7 @@ public class Turret : MonoBehaviour
     public bool canShoot = false;
     public Image rangeIndicator;
     public GameObject muzzleEffect;
+    
     //public GameObject domeIndicator;
 
     private void Start()
@@ -55,8 +58,15 @@ public class Turret : MonoBehaviour
         {
             if (useLaser)
             {
+
+                animator.SetBool("Lasering", false);
                 if (lineRenderer.enabled)
+                {
                     lineRenderer.enabled = false;
+                    muzzleLaserEffect.Stop();
+                    LaserEffectHit.Stop();
+                }
+
 
             }
             return;
@@ -66,6 +76,8 @@ public class Turret : MonoBehaviour
 
         if (useLaser)
         {
+
+            animator.SetBool("Lasering", true);
             Laser();
         }
         else
@@ -85,12 +97,16 @@ public class Turret : MonoBehaviour
     void Laser()
     {
         target.GetComponent<Enemy>().TakeDamage(damageOverTime * Time.deltaTime);
-
         if (!lineRenderer.enabled)
+        {
+            muzzleLaserEffect.Play();
+            LaserEffectHit.Play();
             lineRenderer.enabled = true;
+        }
 
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, target.position + new Vector3(0f, 0.7f, 0f));
+        LaserEffectHit.transform.position = target.position + new Vector3(0f, 0.7f, 0f);
     }
 
     void LockOnTarget()
