@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Missile : MonoBehaviour
+public class CatapultProjectile : MonoBehaviour
 {
 
     private Transform target;
-    public float speed = 50f;
     public GameObject impactEffect;
     public float explosionRadius;
     public int damage;
@@ -16,6 +15,11 @@ public class Missile : MonoBehaviour
         target = _target;
     }
 
+    private void Start()
+    {
+        Vector3 Vo = CalculateCatapult(target.transform.position, transform.position, 1);
+        transform.GetComponent<Rigidbody>().velocity = Vo;
+    }
     private void Update()
     {
         if (target == null)
@@ -25,17 +29,13 @@ public class Missile : MonoBehaviour
             return;
         }
 
-        Vector3 direction = target.position + new Vector3(0f, 0.7f, 0f) - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
-
-        if (direction.magnitude <= distanceThisFrame)
+        if (transform.position.y < -0.2F)
         {
             HitTarget();
             return;
         }
 
-        transform.Translate(direction.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(target);
+
     }
 
 
@@ -48,15 +48,15 @@ public class Missile : MonoBehaviour
 
         Destroy(gameObject);
         target.gameObject.GetComponent<Enemy>().TakeDamage(damage);
-        
+
     }
 
     void Explode()
     {
         Collider[] hitObjects = Physics.OverlapSphere(transform.position, explosionRadius);
-        foreach(Collider collider in hitObjects)
+        foreach (Collider collider in hitObjects)
         {
-            if(collider.tag == "Enemy")
+            if (collider.tag == "Enemy")
             {
                 Damage(collider.transform);
             }
@@ -66,6 +66,27 @@ public class Missile : MonoBehaviour
     void Damage(Transform enemy)
     {
         enemy.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+    }
+
+    Vector3 CalculateCatapult(Vector3 target, Vector3 origen, float time)
+    {
+        Vector3 distance = target - origen;
+        Vector3 distanceXZ = distance;
+        distanceXZ.y = 0;
+
+        float Sy = distance.y;
+        float Sxz = distanceXZ.magnitude;
+
+        float Vxz = Sxz / time;
+        float Vy = Sy / time + 0.5f * Mathf.Abs(Physics.gravity.y) * time;
+
+        Vxz /= 2.5f;
+        Vy *= 2.5f; 
+        Vector3 result = distanceXZ.normalized;
+        result *= Vxz;
+        result.y = Vy;
+
+        return result;
     }
 
 }

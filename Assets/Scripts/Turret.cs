@@ -10,6 +10,8 @@ public class Turret : MonoBehaviour
 
     private Transform target;
     [Header("General")]
+    public Animator animator;
+    public int turretType;
     public float attackRange = 15f;
     public float turretRotationSpeed = 10f;
 
@@ -31,15 +33,17 @@ public class Turret : MonoBehaviour
     public int turretCost = 0;
     public bool canShoot = false;
     public Image rangeIndicator;
+    public GameObject muzzleEffect;
     //public GameObject domeIndicator;
 
     private void Start()
     {
+
         if (canShoot)
         {
             InvokeRepeating("UpdateTarget", 0f, 0.5f);
         }
-        rangeIndicator.rectTransform.sizeDelta = new Vector2(2*attackRange, 2*attackRange);
+        rangeIndicator.rectTransform.sizeDelta = new Vector2(2 * attackRange, 2 * attackRange);
         //domeIndicator.transform.localScale = new Vector3(attackRange, attackRange, attackRange);
         rangeIndicator.enabled = true;
     }
@@ -68,6 +72,7 @@ public class Turret : MonoBehaviour
         {
             if (fireCountdown <= 0)
             {
+                animator.SetTrigger("Fire");
                 Shoot();
                 fireCountdown = 1f / fireRate;
             }
@@ -85,12 +90,13 @@ public class Turret : MonoBehaviour
             lineRenderer.enabled = true;
 
         lineRenderer.SetPosition(0, firePoint.position);
-        lineRenderer.SetPosition(1, target.position);
+        lineRenderer.SetPosition(1, target.position + new Vector3(0f, 0.7f, 0f));
     }
 
     void LockOnTarget()
     {
         Vector3 targetDirection = target.position - firePoint.position;
+        targetDirection += new Vector3(0f, 0.7f, 0);
         Quaternion lookRotation = Quaternion.LookRotation(targetDirection);
         Vector3 rotation = Quaternion.Lerp(turretHead.rotation, lookRotation, Time.deltaTime * turretRotationSpeed).eulerAngles;
         turretHead.rotation = Quaternion.Euler(rotation.x, rotation.y, 0f);
@@ -102,21 +108,12 @@ public class Turret : MonoBehaviour
         GameObject nearestEnemy = null;
         foreach (GameObject enemy in enemies)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(firePoint.position, enemy.transform.position - firePoint.position, out hit, attackRange))
+            float distanceToEnemy = Vector3.Distance(firePoint.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance && distanceToEnemy <= attackRange)
             {
-                //Debug.DrawLine(firePoint.position, hit.point, Color.red, 20f);
-                if (hit.collider.CompareTag(enemyTag))
-                {
-                    float distanceToEnemy = Vector3.Distance(firePoint.position, enemy.transform.position);
-                    if (distanceToEnemy < shortestDistance && distanceToEnemy <= attackRange)
-                    {
-                        shortestDistance = distanceToEnemy;
-                        nearestEnemy = enemy;
-                    }
-                }
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
             }
-
         }
         if (nearestEnemy != null && shortestDistance <= attackRange)
         {
@@ -136,6 +133,8 @@ public class Turret : MonoBehaviour
 
     private void Shoot()
     {
+        GameObject muzzleEffectInstance = Instantiate(muzzleEffect, firePoint.transform.position, firePoint.rotation);
+        Destroy(muzzleEffectInstance, 2f);
         GameObject bulletShot = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         if (!isAOE)
         {
@@ -147,11 +146,23 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            Missile missile = bulletShot.GetComponent<Missile>();
-            if (missile != null)
+            if (turretType == 2)
             {
-                missile.GetTarget(target);
+                Missile missile = bulletShot.GetComponent<Missile>();
+                if (missile != null)
+                {
+                    missile.GetTarget(target);
+                }
             }
+            if (turretType == 3)
+            {
+                CatapultProjectile catapultProjectile = bulletShot.GetComponent<CatapultProjectile>();
+                if (catapultProjectile != null)
+                {
+                    catapultProjectile.GetTarget(target);
+                }
+            }
+
         }
 
 

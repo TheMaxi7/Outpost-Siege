@@ -10,7 +10,7 @@ public class Base : MonoBehaviour
     private Color startColor;
     public Color highlightColor;
     private Renderer rend;
-    public Vector3 offset;
+    private Vector3 offset = new Vector3(0f, 0.13f,0f);
     private GameObject turret;
     BuildManager buildManager;
     PreviewSystem previewSystem;
