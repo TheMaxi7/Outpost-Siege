@@ -29,6 +29,11 @@ public class Base : MonoBehaviour
     {
         if (Shop.isTurretSelected)
         {
+            if (Input.GetMouseButtonDown(1)){
+                Shop.isTurretSelected = false;
+                buildManager.SetTurretToBuild(null);
+            }
+                
             if (!isOccupied)
             {
                rend.material.color = highlightColor; 
