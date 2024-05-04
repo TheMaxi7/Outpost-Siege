@@ -14,7 +14,8 @@ public class Enemy : MonoBehaviour
     public int moveSpeed = 5;
     private int movementSpeed;
     public GameObject deathEffect;
-
+    private Animator animator;
+    private CapsuleCollider collider;
     public Image healthBar;
 
     public Transform[] roadToExit;
@@ -24,11 +25,13 @@ public class Enemy : MonoBehaviour
     private Quaternion lookRotation;
     private void Start()
     {
+        collider = GetComponent<CapsuleCollider>();
         movementSpeed = 0;
         nextWaypoint = roadToExit[0];
         startingHealth = health;
         moveDirection = (nextWaypoint.position - transform.position).normalized;
         lookRotation = Quaternion.LookRotation(moveDirection);
+        animator = GetComponent<Animator>();    
         StartCoroutine(StartMoving());
     }
 
@@ -65,17 +68,23 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+        
         healthBar.fillAmount = health / startingHealth;
         if (health <= 0)
         {
             UiManager.coinsCount+=value;
             Die();
         }
+        else
+            animator.SetTrigger("Hit");
     }
 
     public void Die()
     {
-        Destroy(gameObject);
+        collider.enabled = false;
+        movementSpeed = 0;
+        animator.SetTrigger("Die");
+        Destroy(gameObject, 1.5f);
     }
     
 }

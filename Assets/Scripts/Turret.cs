@@ -125,7 +125,8 @@ public class Turret : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(firePoint.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance && distanceToEnemy <= attackRange)
+            float enemyHealth = enemy.GetComponent<Enemy>().health;
+            if (distanceToEnemy < shortestDistance && distanceToEnemy <= attackRange && enemyHealth > 0)
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
