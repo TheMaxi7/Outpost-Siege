@@ -35,6 +35,7 @@ public class Turret : MonoBehaviour
     public int turretCost = 0;
     public bool canShoot = false;
     public Image rangeIndicator;
+    public GameObject range;
     public GameObject muzzleEffect;
     
     //public GameObject domeIndicator;

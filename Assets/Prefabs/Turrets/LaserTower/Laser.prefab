@@ -149,6 +149,7 @@ MonoBehaviour:
   turretCost: 0
   canShoot: 0
   rangeIndicator: {fileID: 5112371945996827161}
+  range: {fileID: 5065873434953132869}
   muzzleEffect: {fileID: 0}
 --- !u!120 &6448638647042003785
 LineRenderer:

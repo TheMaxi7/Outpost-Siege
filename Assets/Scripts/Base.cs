@@ -10,73 +10,60 @@ public class Base : MonoBehaviour
     private Color startColor;
     public Color highlightColor;
     private Renderer rend;
-    private Vector3 offset = new Vector3(0f, 0.13f,0f);
-    private GameObject turret;
+    public static Vector3 offset = new Vector3(0f, 0.13f,0f);
+    public GameObject turret;
     BuildManager buildManager;
     PreviewSystem previewSystem;
-    bool isOccupied = false;
+    public bool isOccupied = false;
     public Material hoverMat;
     private int selectedTurretCost;
+
+    public static bool baseSelected = false;
+
     void Start()
     {
         previewSystem = PreviewSystem.instance;
         buildManager = BuildManager.instance;
         rend = GetComponent<Renderer>();
+
         startColor = rend.material.color;
     }
 
     void Update()
     {
-        if (Shop.isTurretSelected)
+        if (baseSelected)
         {
-            if (Input.GetMouseButtonDown(1)){
-                Shop.isTurretSelected = false;
-                buildManager.SetTurretToBuild(null);
-            }
-                
-            if (!isOccupied)
+            if (Input.GetMouseButtonDown(1))
             {
-               rend.material.color = highlightColor; 
+                ResetView();
             }
         }     
-        else
-            rend.material.color = startColor;
     }
 
     private void OnMouseDown()
     {
-        if (buildManager.GetTurretToBuild() == null)
-            return;
-
-        if (turret != null)
+        if (!isOccupied)
         {
-            return;
-        }
-        GameObject turretToBuild = buildManager.GetTurretToBuild();
-        selectedTurretCost = turretToBuild.GetComponent<Turret>().turretCost;
-        if (selectedTurretCost <= UiManager.coinsCount)
-        {
-            turret = Instantiate(turretToBuild, transform.position + offset, transform.rotation);
-            turret.GetComponent<Turret>().canShoot = true;
-            UiManager.coinsCount -= selectedTurretCost;
-            Shop.isTurretSelected = false;
-            isOccupied = true;
+            if (baseSelected)
+            {
+                UpdateBasePreview();
+            }
+            //move camera
+            baseSelected = true;
+            BuildManager.baseSelected = this;
         }
 
     }
     private void OnMouseEnter()
     {
-        if (buildManager.GetTurretToBuild() == null)
-            return;
+       
         if (isOccupied == false)
         {
             rend.material.color = hoverColor;
-            previewSystem.StartShowingPlacementPreview(buildManager.GetTurretToBuild(), transform.position + offset, transform.rotation);
         }
         else
         {
-            turret.GetComponent<Turret>().rangeIndicator.enabled = true;
-            //turret.GetComponent<Turret>().domeIndicator.SetActive(true);
+            turret.GetComponent<Turret>().range.SetActive(true);
         }
 
     }
@@ -85,11 +72,24 @@ public class Base : MonoBehaviour
     {
         if (isOccupied)
         {
-            turret.GetComponent<Turret>().rangeIndicator.enabled = false;
-            //turret.GetComponent<Turret>().domeIndicator.SetActive(false);
+            turret.GetComponent<Turret>().range.SetActive(false);
         }
         rend.material.color = startColor;
+    }
+
+    private void ResetView()
+    {
+        //move camera to default
+        baseSelected = false;
         previewSystem.StopShowingPreview();
+
+    }
+
+    private void UpdateBasePreview()
+    {
+        previewSystem.StopShowingPreview();
+        BuildManager.baseSelected = this;
+        previewSystem.StartShowingPlacementPreview(BuildManager.turretToBuild, BuildManager.baseSelected.transform.position + offset, BuildManager.baseSelected.transform.rotation);
     }
 
 

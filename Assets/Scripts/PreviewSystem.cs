@@ -36,12 +36,10 @@ public class PreviewSystem : MonoBehaviour
 
     public void PreparePreview(GameObject previewObject)
     {
-
         Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
 
         foreach (Renderer renderer in renderers)
         {
-            Debug.Log(renderer);
             if (renderer.name == "3dRange")
             {
                 continue;

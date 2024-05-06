@@ -310,6 +310,8 @@ MonoBehaviour:
   fireRate: 0.2
   bulletPrefab: {fileID: 1162392375372998, guid: 3e5b0980d9cc7a94bbb93263b9c6228d,
     type: 3}
+  muzzleLaserEffect: {fileID: 0}
+  LaserEffectHit: {fileID: 0}
   useLaser: 0
   damageOverTime: 40
   lineRenderer: {fileID: 0}
@@ -319,6 +321,7 @@ MonoBehaviour:
   turretCost: 100
   canShoot: 0
   rangeIndicator: {fileID: 6407249277739180142}
+  range: {fileID: 3012034532839427359}
   muzzleEffect: {fileID: 7023928351916388350, guid: fc8c7edfc4d7a1748bc6de45438a8eaa,
     type: 3}
 --- !u!1 &1794820717168224
