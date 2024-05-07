@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float movementSpeed;
-    public float movementTime;
-    public float rotationAmount;
-    public Transform cameraTransform;
-    public Vector3 zoomAmount;
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private float movementTime;
+    [SerializeField] private float rotationAmount;
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private Vector3 zoomAmount;
 
-    public Vector3 newPosition;
-    public Quaternion newRotation;
-    public Vector3 newZoom;
-    public float zoomSpeed = 800f;
+    [SerializeField] private Vector3 newPosition;
+    [SerializeField] private Quaternion newRotation;
+    [SerializeField] private Vector3 newZoom;
+    [SerializeField] private float zoomSpeed = 800f;
 
-    public Vector3 dragStartPosition;
-    public Vector3 dragCurrentPosition;
-    public Vector3 rotateStartPosition;
-    public Vector3 rotateCurrentPosition;
+    [SerializeField] private Vector3 dragStartPosition;
+    [SerializeField] private Vector3 dragCurrentPosition;
+    [SerializeField] private Vector3 rotateStartPosition;
+    [SerializeField] private Vector3 rotateCurrentPosition;
 
-    public AnimationCurve lerpCurve;
+    [SerializeField] private AnimationCurve lerpCurve;
 
-    public float minX, minZ, minY;
-    public float maxX, maxZ, maxY;
+    [SerializeField] private float minX, minZ, minY;
+    [SerializeField] private float maxX, maxZ, maxY;
 
 
     private void Start()

@@ -7,8 +7,8 @@ public class PreviewSystem : MonoBehaviour
 
     public static PreviewSystem instance;
     private GameObject previewObject;
-    public Vector3 offset;
-    public Material previewMaterial;
+    [SerializeField] private Vector3 offset;
+    [SerializeField] private Material previewMaterial;
 
     private void Awake()
     {

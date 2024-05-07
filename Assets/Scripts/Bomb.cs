@@ -6,10 +6,10 @@ public class Bomb : MonoBehaviour
 {
 
     private Vector3 target;
-    public float speed = 70f;
-    public GameObject impactEffect;
-    public float explosionRadius;
-    public int damage;
+    [SerializeField] private float speed = 70f;
+    [SerializeField] private GameObject impactEffect;
+    [SerializeField] private float explosionRadius;
+    [SerializeField] private int damage;
     public void GetTargetPoint(Vector3 _target)
     {
         target = _target;

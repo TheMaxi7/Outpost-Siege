@@ -8,8 +8,8 @@ public class UiManager : MonoBehaviour
     public static int livesCount = 20;
     public static int coinsCount = 150;
 
-    public TextMeshProUGUI livesText;
-    public TextMeshProUGUI coinsText;
+    [SerializeField] private TextMeshProUGUI livesText;
+    [SerializeField] private TextMeshProUGUI coinsText;
 
     void Start()
     {

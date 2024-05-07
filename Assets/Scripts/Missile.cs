@@ -6,10 +6,10 @@ public class Missile : MonoBehaviour
 {
 
     private Transform target;
-    public float speed = 50f;
-    public GameObject impactEffect;
-    public float explosionRadius;
-    public int damage;
+    [SerializeField] private float speed = 50f;
+    [SerializeField] private GameObject impactEffect;
+    [SerializeField] private float explosionRadius;
+    [SerializeField] private int damage;
 
     public void GetTarget(Transform _target)
     {

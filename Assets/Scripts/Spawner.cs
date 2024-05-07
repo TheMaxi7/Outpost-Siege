@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public Transform[] waypoints;
-    public GameObject basicEnemyPrefab;
-    public GameObject fastEnemyPrefab;
-    public GameObject bigEnemyPrefab;
+    [SerializeField] private Transform[] waypoints;
+    [SerializeField] private GameObject basicEnemyPrefab;
+    [SerializeField] private GameObject fastEnemyPrefab;
+    [SerializeField] private GameObject bigEnemyPrefab;
     private GameObject enemyToIstantiate;
 
     private Transform spawnLocation;

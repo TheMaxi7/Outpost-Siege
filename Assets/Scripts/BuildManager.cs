@@ -8,13 +8,13 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance;
 
     public GameObject basicTurretPrefab;
-    public GameObject missileTurretPrefab;
-    public GameObject laserTurretPrefab;
-    public GameObject sniperTurretPrefab;
+    public  GameObject missileTurretPrefab;
+    public  GameObject laserTurretPrefab;
+    public  GameObject sniperTurretPrefab;
 
-    public GameObject shop;
-    public GameObject confirmButton;
-    public GameObject cancelButton;
+    [SerializeField] private GameObject shop;
+    [SerializeField] private GameObject confirmButton;
+    [SerializeField] private GameObject cancelButton;
 
     public static Base baseSelected;
     public static GameObject turretToBuild;

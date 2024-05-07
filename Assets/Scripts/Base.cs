@@ -6,24 +6,22 @@ using UnityEngine.EventSystems;
 
 public class Base : MonoBehaviour
 {
-    public Color hoverColor;
+    [SerializeField] private Color hoverColor;
+    [SerializeField] private Color highlightColor;
     private Color startColor;
-    public Color highlightColor;
     private Renderer rend;
     public static Vector3 offset = new Vector3(0f, 0.13f,0f);
-    public GameObject turret;
-    BuildManager buildManager;
-    PreviewSystem previewSystem;
-    public bool isOccupied = false;
-    public Material hoverMat;
-    private int selectedTurretCost;
 
+    [HideInInspector] public GameObject turret;
+    PreviewSystem previewSystem;
+    [HideInInspector] public bool isOccupied = false;
+    [SerializeField] private Material hoverMat;
     public static bool baseSelected = false;
 
     void Start()
     {
         previewSystem = PreviewSystem.instance;
-        buildManager = BuildManager.instance;
+
         rend = GetComponent<Renderer>();
 
         startColor = rend.material.color;

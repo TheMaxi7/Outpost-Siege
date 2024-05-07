@@ -11,35 +11,35 @@ public class AbilitiesManager : MonoBehaviour
 {
 
     [Header("Special Ability 1")]
-    public Canvas ability1Canvas;
-    public Image ability1Indicator;
-    public GameObject bomb1Prefab;
-    public float countdownAbility1;
-    public int costAbility1;
-    private bool isAbility1Ready = true;
-    public Image cdOverlay1;
+    [SerializeField]private Canvas ability1Canvas;
+    [SerializeField] private Image ability1Indicator;
+    [SerializeField] private GameObject bomb1Prefab;
+    [SerializeField] private float countdownAbility1;
+    [SerializeField] private int costAbility1;
+    [SerializeField] private bool isAbility1Ready = true;
+    [SerializeField] private Image cdOverlay1;
 
 
     [Header("Special Ability 2")]
-    public Canvas ability2Canvas;
-    public Image ability2Indicator;
-    public GameObject bomb2Prefab;
-    public float countdownAbility2;
-    public int costAbility2;
-    private bool isAbility2Ready = true;
-    public Image cdOverlay2;
+    [SerializeField] private Canvas ability2Canvas;
+    [SerializeField] private Image ability2Indicator;
+    [SerializeField] private GameObject bomb2Prefab;
+    [SerializeField] private float countdownAbility2;
+    [SerializeField] private int costAbility2;
+    [SerializeField] private bool isAbility2Ready = true;
+    [SerializeField] private Image cdOverlay2;
 
     [Header("Special Ability 3")]
-    public Canvas ability3Canvas;
-    public Image ability3Indicator;
-    public GameObject bomb3Prefab;
-    public float countdownAbility3;
-    public int costAbility3;
-    private bool isAbility3Ready = true;
-    public Image cdOverlay3;
+    [SerializeField] private Canvas ability3Canvas;
+    [SerializeField] private Image ability3Indicator;
+    [SerializeField] private GameObject bomb3Prefab;
+    [SerializeField] private float countdownAbility3;
+    [SerializeField] private int costAbility3;
+    [SerializeField] private bool isAbility3Ready = true;
+    [SerializeField] private Image cdOverlay3;
 
     [Header("General setup")]
-    public Transform deployPoint;
+    [SerializeField] private Transform deployPoint;
     private Vector3 targetPoint;
     private Ray ray;
 

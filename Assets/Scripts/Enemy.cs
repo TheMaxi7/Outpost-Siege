@@ -9,14 +9,14 @@ public class Enemy : MonoBehaviour
     private float distanceToTarget;
 
     public float health;
-    private float startingHealth;
-    public int value;
-    public int moveSpeed = 5;
+    [SerializeField] private float startingHealth;
+    [SerializeField] private int value;
+    [SerializeField] private int moveSpeed = 5;
     private int movementSpeed;
-    public GameObject deathEffect;
+    [SerializeField] private GameObject deathEffect;
     private Animator animator;
-    private CapsuleCollider collider;
-    public Image healthBar;
+    private CapsuleCollider coll;
+    [SerializeField] private Image healthBar;
 
     public Transform[] roadToExit;
     private Transform nextWaypoint;
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     private Quaternion lookRotation;
     private void Start()
     {
-        collider = GetComponent<CapsuleCollider>();
+        coll = GetComponent<CapsuleCollider>();
         movementSpeed = 0;
         nextWaypoint = roadToExit[0];
         startingHealth = health;
@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        collider.enabled = false;
+        coll.enabled = false;
         movementSpeed = 0;
         animator.SetTrigger("Die");
         Destroy(gameObject, 1.5f);

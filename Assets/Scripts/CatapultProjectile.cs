@@ -6,9 +6,9 @@ public class CatapultProjectile : MonoBehaviour
 {
 
     private Transform target;
-    public GameObject impactEffect;
-    public float explosionRadius;
-    public int damage;
+    [SerializeField] private GameObject impactEffect;
+    [SerializeField] private float explosionRadius;
+    [SerializeField] private int damage;
 
     public void GetTarget(Transform _target)
     {
@@ -24,8 +24,6 @@ public class CatapultProjectile : MonoBehaviour
     {
         if (target == null)
         {
-
-            Destroy(gameObject);
             return;
         }
 

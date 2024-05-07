@@ -10,33 +10,33 @@ public class Turret : MonoBehaviour
 
     private Transform target;
     [Header("General")]
-    public Animator animator;
-    public int turretType;
-    public float attackRange = 15f;
-    public float turretRotationSpeed = 10f;
+    [SerializeField] private Animator animator;
+    [SerializeField] private int turretType;
+    [SerializeField] private float attackRange = 15f;
+    [SerializeField] private float turretRotationSpeed = 10f;
 
     [Header("Use bullets (Default)")]
-    public bool isAOE = false;
-    public float fireRate = 1f;
+    [SerializeField] private bool isAOE = false;
+    [SerializeField] private float fireRate = 1f;
     private float fireCountdown = 0f;
-    public GameObject bulletPrefab;
+    [SerializeField] private GameObject bulletPrefab;
 
     [Header("Use laser")]
-    public ParticleSystem muzzleLaserEffect;
-    public ParticleSystem LaserEffectHit;
-    public bool useLaser = false;
-    public float damageOverTime = 40f;
-    public LineRenderer lineRenderer;
+    [SerializeField] private ParticleSystem muzzleLaserEffect;
+    [SerializeField] private ParticleSystem LaserEffectHit;
+    [SerializeField] private bool useLaser = false;
+    [SerializeField] private float damageOverTime = 40f;
+    [SerializeField] private LineRenderer lineRenderer;
 
     [Header("Setup Fields")]
-    public string enemyTag = "Enemy";
-    public Transform turretHead;
-    public Transform firePoint;
+    [SerializeField] private string enemyTag = "Enemy";
+    [SerializeField] private Transform turretHead;
+    [SerializeField] private Transform firePoint;
     public int turretCost = 0;
-    public bool canShoot = false;
-    public Image rangeIndicator;
+    [HideInInspector] public bool canShoot = false;
+    [SerializeField] private Image rangeIndicator;
     public GameObject range;
-    public GameObject muzzleEffect;
+    [SerializeField] private GameObject muzzleEffect;
     
     //public GameObject domeIndicator;
 
