@@ -9,6 +9,7 @@ public class PreviewSystem : MonoBehaviour
     private GameObject previewObject;
     [SerializeField] private Vector3 offset;
     [SerializeField] private Material previewMaterial;
+    [HideInInspector] public bool isShowingPreview;
 
     private void Awake()
     {
@@ -23,13 +24,17 @@ public class PreviewSystem : MonoBehaviour
     public void StopShowingPreview()
     {
         if (previewObject != null)
+        {
             Destroy(previewObject);
+            isShowingPreview = true;
+        }
+            
     }
 
 
     public void StartShowingPlacementPreview(GameObject prefab,Vector3 basePosition, Quaternion baseRotation)
     {
-        
+        isShowingPreview = true;
         previewObject = Instantiate(prefab, basePosition, baseRotation);
         PreparePreview(previewObject);
     }

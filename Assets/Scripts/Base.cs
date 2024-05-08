@@ -40,16 +40,22 @@ public class Base : MonoBehaviour
 
     private void OnMouseDown()
     {
+        
         if (!isOccupied)
         {
             if (baseSelected)
             {
                 UpdateBasePreview();
+                if (CameraController.isBuilding)
+                    CameraController.UpdateZoomBase(this);
+                    
             }
-            //move camera
             baseSelected = true;
             BuildManager.baseSelected = this;
         }
+
+        if (!CameraController.isBuilding)
+            CameraController.ZoomBase(this);
 
     }
     private void OnMouseEnter()
@@ -77,7 +83,7 @@ public class Base : MonoBehaviour
 
     private void ResetView()
     {
-        //move camera to default
+        CameraController.UnZoomBase();
         baseSelected = false;
         previewSystem.StopShowingPreview();
 
@@ -85,9 +91,13 @@ public class Base : MonoBehaviour
 
     private void UpdateBasePreview()
     {
-        previewSystem.StopShowingPreview();
-        BuildManager.baseSelected = this;
-        previewSystem.StartShowingPlacementPreview(BuildManager.turretToBuild, BuildManager.baseSelected.transform.position + offset, BuildManager.baseSelected.transform.rotation);
+        if (previewSystem.isShowingPreview)
+        {
+            previewSystem.StopShowingPreview();
+            BuildManager.baseSelected = this;
+            previewSystem.StartShowingPlacementPreview(BuildManager.turretToBuild, BuildManager.baseSelected.transform.position + offset, BuildManager.baseSelected.transform.rotation);
+        }
+
     }
 
 

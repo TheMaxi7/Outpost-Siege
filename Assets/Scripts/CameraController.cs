@@ -10,9 +10,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private Vector3 zoomAmount;
 
-    [SerializeField] private Vector3 newPosition;
+    public static Vector3 newPosition;
     [SerializeField] private Quaternion newRotation;
-    [SerializeField] private Vector3 newZoom;
+    public static Vector3 newZoom;
     [SerializeField] private float zoomSpeed = 800f;
 
     [SerializeField] private Vector3 dragStartPosition;
@@ -25,12 +25,18 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float minX, minZ, minY;
     [SerializeField] private float maxX, maxZ, maxY;
 
+    public static Vector3 oldCameraPosition;
+    public static Vector3 oldZoom;
+    public static bool isBuilding;
+    public static Vector3 whereImWatching;
 
     private void Start()
     {
+        isBuilding = false;
         newPosition = transform.position;
         newRotation = transform.rotation;
         newZoom = cameraTransform.localPosition;
+        newZoom.y = 10f;
     }
 
     private void Update()
@@ -38,12 +44,14 @@ public class CameraController : MonoBehaviour
         HandleMovementInput();
         HandleMouseInput();
 
+
         float clampedY = Mathf.Clamp(newZoom.y, minY, maxY);
         float clampedX = Mathf.Clamp(newPosition.x, minX, maxX);
         float clampedZ = Mathf.Clamp(newPosition.z, minZ, maxZ);
         newPosition = new Vector3(clampedX, clampedY, clampedZ);
         newZoom.y = clampedY;
-
+        whereImWatching = cameraTransform.forward;
+        Debug.Log(whereImWatching);
     }
 
     void HandleMovementInput()
@@ -111,5 +119,30 @@ public class CameraController : MonoBehaviour
         cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, newZoom, lerpCurve.Evaluate(Time.deltaTime * movementSpeed));
 
 
+    }
+
+    public static void ZoomBase(Base baseSelected) 
+    {
+        isBuilding = true;
+        Debug.Log(baseSelected.transform.position);
+        oldCameraPosition = newPosition;
+        oldZoom = newZoom;
+        Vector3 zoomedPosition = new Vector3(baseSelected.transform.position.x, newPosition.y, baseSelected.transform.position.z) - whereImWatching * 6;
+        newPosition = new Vector3(zoomedPosition.x, newPosition.y, zoomedPosition.z);
+        newZoom.y -= 15.0f;
+
+    }
+
+    public static void UpdateZoomBase(Base baseSelected)
+    {
+        oldCameraPosition = newPosition;
+        Vector3 zoomedPosition = new Vector3(baseSelected.transform.position.x, newPosition.y, baseSelected.transform.position.z) - whereImWatching * 6;
+        newPosition = new Vector3(zoomedPosition.x, newPosition.y, zoomedPosition.z);
+    }
+
+    public static void UnZoomBase()
+    {
+        newZoom = oldZoom;
+        isBuilding = false;
     }
 }

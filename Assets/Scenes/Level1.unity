@@ -771,6 +771,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &27480578 stripped
 Transform:
@@ -979,6 +981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &35205921 stripped
 Transform:
@@ -1664,6 +1668,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &59956035 stripped
 Transform:
@@ -2326,6 +2332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &71438160 stripped
 Transform:
@@ -5593,6 +5601,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &163373454
 PrefabInstance:
@@ -5706,6 +5716,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &163373457 stripped
 Transform:
@@ -6359,6 +6371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &190507455 stripped
 Transform:
@@ -8393,6 +8407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &249670417 stripped
 Transform:
@@ -8601,6 +8617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &261125421 stripped
 Transform:
@@ -11044,7 +11062,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.27059805, y: -0.6532815, z: 0.27059805, w: 0.6532815}
-  m_LocalPosition: {x: 25.93, y: 10.42, z: -0.07}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13692,6 +13710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &406587867 stripped
 Transform:
@@ -15181,6 +15201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &447318561
 PrefabInstance:
@@ -15683,6 +15705,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &456928245 stripped
 Transform:
@@ -16506,6 +16530,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &472776532
 PrefabInstance:
@@ -17507,6 +17533,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &501256952 stripped
 Transform:
@@ -19011,6 +19039,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &538942431 stripped
 Transform:
@@ -19748,9 +19778,7 @@ MonoBehaviour:
   rotationAmount: 1
   cameraTransform: {fileID: 330585546}
   zoomAmount: {x: 0, y: 0, z: 0}
-  newPosition: {x: 0, y: 0, z: 0}
   newRotation: {x: 0, y: 0, z: 0, w: 0}
-  newZoom: {x: 0, y: 0, z: 0}
   zoomSpeed: 800
   dragStartPosition: {x: 0, y: 0, z: 0}
   dragCurrentPosition: {x: 0, y: 0, z: 0}
@@ -19789,12 +19817,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  minX: -35
-  minZ: -35
-  minY: 3
-  maxX: -2
-  maxZ: 10
-  maxY: 25
+  minX: -20
+  minZ: -30
+  minY: 2
+  maxX: 20
+  maxZ: 20
+  maxY: 11
 --- !u!4 &552771490
 Transform:
   m_ObjectHideFlags: 0
@@ -19804,7 +19832,7 @@ Transform:
   m_GameObject: {fileID: 552771488}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.2, y: 5.3, z: -10.7}
+  m_LocalPosition: {x: 11.77, y: 13.87, z: -10.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21369,6 +21397,7 @@ MonoBehaviour:
     type: 3}
   countdownAbility1: 10
   costAbility1: 100
+  isAbility1Ready: 1
   cdOverlay1: {fileID: 2043491125}
   ability2Canvas: {fileID: 2063787208}
   ability2Indicator: {fileID: 1425017806}
@@ -21376,6 +21405,7 @@ MonoBehaviour:
     type: 3}
   countdownAbility2: 20
   costAbility2: 150
+  isAbility2Ready: 1
   cdOverlay2: {fileID: 1316877181}
   ability3Canvas: {fileID: 1475569885}
   ability3Indicator: {fileID: 1660629190}
@@ -21383,6 +21413,7 @@ MonoBehaviour:
     type: 3}
   countdownAbility3: 15
   costAbility3: 75
+  isAbility3Ready: 1
   cdOverlay3: {fileID: 969054807}
   deployPoint: {fileID: 524242183}
 --- !u!114 &627200774
@@ -22175,6 +22206,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &648016633 stripped
 Transform:
@@ -25531,6 +25564,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &753128272 stripped
 Transform:
@@ -26711,6 +26746,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1 &770696183
 GameObject:
@@ -27958,6 +27995,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &818392812 stripped
 Transform:
@@ -28393,6 +28432,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &836311495 stripped
 Transform:
@@ -28851,6 +28892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1 &863335874
 GameObject:
@@ -34044,6 +34087,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &1034449782 stripped
 Transform:
@@ -34993,6 +35038,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &1067483345 stripped
 Transform:
@@ -35599,6 +35646,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &1098723456 stripped
 Transform:
@@ -35985,6 +36034,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &1106071662 stripped
 Transform:
@@ -40882,6 +40933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &1286715015
 PrefabInstance:
@@ -41942,6 +41995,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &1341417483
 PrefabInstance:
@@ -44790,6 +44845,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &1423686515 stripped
 Transform:
@@ -46780,6 +46837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &1477786578 stripped
 Transform:
@@ -47323,6 +47382,7 @@ MonoBehaviour:
     type: 3}
   countdownAbility1: 10
   costAbility1: 100
+  isAbility1Ready: 1
   cdOverlay1: {fileID: 675443989}
   ability2Canvas: {fileID: 2063787208}
   ability2Indicator: {fileID: 1425017806}
@@ -47330,6 +47390,7 @@ MonoBehaviour:
     type: 3}
   countdownAbility2: 20
   costAbility2: 150
+  isAbility2Ready: 1
   cdOverlay2: {fileID: 468450541}
   ability3Canvas: {fileID: 1475569885}
   ability3Indicator: {fileID: 1660629190}
@@ -47337,6 +47398,7 @@ MonoBehaviour:
     type: 3}
   countdownAbility3: 15
   costAbility3: 75
+  isAbility3Ready: 1
   cdOverlay3: {fileID: 1488692545}
   deployPoint: {fileID: 524242183}
 --- !u!114 &1505624962
@@ -49853,6 +49915,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &1613286365
 PrefabInstance:
@@ -50239,6 +50303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &1619425212
 PrefabInstance:
@@ -52933,6 +52999,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &1683274051
 PrefabInstance:
@@ -54881,6 +54949,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &1756250406
 PrefabInstance:
@@ -55688,6 +55758,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &1795188270
 PrefabInstance:
@@ -58371,6 +58443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1 &1905819806
 GameObject:
@@ -58974,6 +59048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0.5, z: 0}
   previewMaterial: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
+  isShowingPreview: 0
 --- !u!114 &1922730953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59684,6 +59759,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &1956208075 stripped
 Transform:
@@ -59981,6 +60058,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &1959356946
 PrefabInstance:
@@ -61285,6 +61364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &1994536478 stripped
 Transform:
@@ -61582,6 +61663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &1997505586 stripped
 Transform:
@@ -62576,6 +62659,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &2035680864
 PrefabInstance:
@@ -64255,6 +64340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!4 &2075821764 stripped
 Transform:
@@ -65528,6 +65615,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &2107794087
 PrefabInstance:
@@ -65736,6 +65825,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.6663714, g: 1, b: 0.4575472, a: 0}
   highlightColor: {r: 1, g: 0.9902007, b: 0.7311321, a: 0}
+  turret: {fileID: 0}
+  isOccupied: 0
   hoverMat: {fileID: 2100000, guid: 45678cb97f491564285098352d750994, type: 2}
 --- !u!1001 &2114063381
 PrefabInstance:
