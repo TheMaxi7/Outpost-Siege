@@ -10,7 +10,7 @@ public class Base : MonoBehaviour
     [SerializeField] private Color highlightColor;
     private Color startColor;
     private Renderer rend;
-    public static Vector3 offset = new Vector3(0f, 0.13f,0f);
+    public static Vector3 offset = new Vector3(0f, 0.13f, 0f);
 
     [HideInInspector] public GameObject turret;
     PreviewSystem previewSystem;
@@ -35,32 +35,89 @@ public class Base : MonoBehaviour
             {
                 ResetView();
             }
-        }     
+        }
+
     }
 
     private void OnMouseDown()
     {
-        
         if (!isOccupied)
         {
             if (baseSelected)
             {
-                UpdateBasePreview();
+                if (CameraController.isManagingTurret)
+                {
+                    BuildManager.baseSelected.turret.GetComponent<Turret>().range.SetActive(false);
+                    CameraController.UpdateZoomBase(this);
+                    CameraController.isBuilding = true;
+                    CameraController.isManagingTurret = false;
+                    //UpdateBasePreview();
+                    BuildManager.baseSelected = this;
+
+                }
+                else
+                {
+                    UpdateBasePreview();
+                    BuildManager.baseSelected = this;
+                }
+
                 if (CameraController.isBuilding)
                     CameraController.UpdateZoomBase(this);
-                    
+
             }
-            baseSelected = true;
-            BuildManager.baseSelected = this;
+            else
+            {
+                baseSelected = true;
+                BuildManager.baseSelected = this;
+                CameraController.ZoomBase(this);
+            }
+
+
         }
 
-        if (!CameraController.isBuilding)
-            CameraController.ZoomBase(this);
+        if (isOccupied)
+        {
+            if (baseSelected)
+            {
+                if (CameraController.isBuilding)
+                {
+                    CameraController.UpdateZoomBase(this);
+                    CameraController.isBuilding = false;
+                    CameraController.isManagingTurret = true;
+                    UpdateBasePreview();
+                    BuildManager.baseSelected = this;
+
+                }
+                else
+                {
+                    BuildManager.baseSelected.turret.GetComponent<Turret>().range.SetActive(false);
+                    UpdateBasePreview();
+                    BuildManager.baseSelected = this;
+                }
+
+                if (CameraController.isManagingTurret)
+                    CameraController.UpdateZoomBase(this);
+
+            }
+            else
+            {
+                baseSelected = true;
+                BuildManager.baseSelected = this;
+                CameraController.ZoomBase(this);
+                CameraController.isManagingTurret = true;
+                BuildManager.baseSelected.turret.GetComponent<Turret>().range.SetActive(true);
+            }
+
+        }
+
+
+
+
 
     }
     private void OnMouseEnter()
     {
-       
+
         if (isOccupied == false)
         {
             rend.material.color = hoverColor;
@@ -76,7 +133,8 @@ public class Base : MonoBehaviour
     {
         if (isOccupied)
         {
-            turret.GetComponent<Turret>().range.SetActive(false);
+            if (this != BuildManager.baseSelected)
+                turret.GetComponent<Turret>().range.SetActive(false);
         }
         rend.material.color = startColor;
     }
@@ -84,8 +142,13 @@ public class Base : MonoBehaviour
     private void ResetView()
     {
         CameraController.UnZoomBase();
+        if (BuildManager.baseSelected.isOccupied)
+            BuildManager.baseSelected.turret.GetComponent<Turret>().range.SetActive(false);
         baseSelected = false;
         previewSystem.StopShowingPreview();
+        BuildManager.baseSelected = null;
+        CameraController.isBuilding = false;
+        CameraController.isManagingTurret = false;
 
     }
 
@@ -94,8 +157,13 @@ public class Base : MonoBehaviour
         if (previewSystem.isShowingPreview)
         {
             previewSystem.StopShowingPreview();
-            BuildManager.baseSelected = this;
-            previewSystem.StartShowingPlacementPreview(BuildManager.turretToBuild, BuildManager.baseSelected.transform.position + offset, BuildManager.baseSelected.transform.rotation);
+            if (!isOccupied)
+            {
+                BuildManager.baseSelected = this;
+                previewSystem.StartShowingPlacementPreview(BuildManager.turretToBuild, BuildManager.baseSelected.transform.position + offset, BuildManager.baseSelected.transform.rotation);
+            }
+
+
         }
 
     }

@@ -45,7 +45,7 @@ public class Shop : MonoBehaviour
         previewSystem.StartShowingPlacementPreview(BuildManager.turretToBuild, BuildManager.baseSelected.transform.position + Base.offset, BuildManager.baseSelected.transform.rotation);
     }
 
-    public void SelectSniperTurret()
+    public void SelectCatapultTurret()
     {
         buildManager.SetTurretToBuild(buildManager.sniperTurretPrefab);
         isTurretSelected = true;

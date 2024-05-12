@@ -26,13 +26,17 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float maxX, maxZ, maxY;
 
     public static Vector3 oldCameraPosition;
+    public static float startingCameraPositionX;
+    public static float startingCameraPositionZ;
     public static Vector3 oldZoom;
     public static bool isBuilding;
+    public static bool isManagingTurret;
     public static Vector3 whereImWatching;
 
     private void Start()
     {
         isBuilding = false;
+        isManagingTurret = false;
         newPosition = transform.position;
         newRotation = transform.rotation;
         newZoom = cameraTransform.localPosition;
@@ -51,7 +55,7 @@ public class CameraController : MonoBehaviour
         newPosition = new Vector3(clampedX, clampedY, clampedZ);
         newZoom.y = clampedY;
         whereImWatching = cameraTransform.forward;
-        Debug.Log(whereImWatching);
+        //Debug.Log(whereImWatching);
     }
 
     void HandleMovementInput()
@@ -83,24 +87,24 @@ public class CameraController : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, newPosition, lerpCurve.Evaluate(Time.deltaTime * movementSpeed));
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, lerpCurve.Evaluate(Time.deltaTime * rotationAmount));
-        
+
     }
 
     void HandleMouseInput()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(2))
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             float entry;
-            if(plane.Raycast(ray, out entry))
+            if (plane.Raycast(ray, out entry))
             {
                 dragStartPosition = ray.GetPoint(entry);
             }
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(2))
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -121,11 +125,16 @@ public class CameraController : MonoBehaviour
 
     }
 
-    public static void ZoomBase(Base baseSelected) 
+    public static void ZoomBase(Base baseSelected)
     {
-        isBuilding = true;
-        Debug.Log(baseSelected.transform.position);
+        if (!baseSelected.isOccupied)
+            isBuilding = true;
+        else
+            isManagingTurret = true;
+        //Debug.Log(baseSelected.transform.position);
         oldCameraPosition = newPosition;
+        startingCameraPositionX = oldCameraPosition.x;
+        startingCameraPositionZ = oldCameraPosition.z;
         oldZoom = newZoom;
         Vector3 zoomedPosition = new Vector3(baseSelected.transform.position.x, newPosition.y, baseSelected.transform.position.z) - whereImWatching * 6;
         newPosition = new Vector3(zoomedPosition.x, newPosition.y, zoomedPosition.z);
@@ -142,7 +151,10 @@ public class CameraController : MonoBehaviour
 
     public static void UnZoomBase()
     {
+        Vector3 unZoomedPosition = new Vector3(startingCameraPositionX, newPosition.y, startingCameraPositionZ);
+        newPosition = new Vector3(unZoomedPosition.x, newPosition.y, unZoomedPosition.z);
         newZoom = oldZoom;
         isBuilding = false;
+        isManagingTurret = false;
     }
 }

@@ -8,11 +8,12 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance;
 
     public GameObject basicTurretPrefab;
-    public  GameObject missileTurretPrefab;
-    public  GameObject laserTurretPrefab;
-    public  GameObject sniperTurretPrefab;
+    public GameObject missileTurretPrefab;
+    public GameObject laserTurretPrefab;
+    public GameObject sniperTurretPrefab;
 
     [SerializeField] private GameObject shop;
+    [SerializeField] private GameObject turretInfoUI;
     [SerializeField] private GameObject confirmButton;
     [SerializeField] private GameObject cancelButton;
 
@@ -41,30 +42,36 @@ public class BuildManager : MonoBehaviour
     {
         if (Base.baseSelected == false)
         {
-            if (!shop.activeInHierarchy)
-                return;
-        }
-
-
-        if (Base.baseSelected == true)
-        {
-            shop.SetActive(true);
-            confirmButton.SetActive(true);
-            cancelButton.SetActive(true);
-        }
-        else
-        {
             shop.SetActive(false);
             confirmButton.SetActive(false);
             cancelButton.SetActive(false);
+            turretInfoUI.SetActive(false);
         }
 
+
+        if ((Base.baseSelected == true))
+        {
+            if (!baseSelected.isOccupied)
+            {
+                shop.SetActive(true);
+                confirmButton.SetActive(true);
+                cancelButton.SetActive(true);
+                turretInfoUI.SetActive(false);
+            }
+            else
+            {
+                turretInfoUI.SetActive(true);
+                shop.SetActive(false);
+                confirmButton.SetActive(false);
+                cancelButton.SetActive(false);
+            }
+        }
     }
 
 
-    public void SetTurretToBuild (GameObject turret)
+    public void SetTurretToBuild(GameObject turret)
     {
-        turretToBuild = turret;    
+        turretToBuild = turret;
     }
 
     public void ConfirmBuild()
@@ -79,7 +86,6 @@ public class BuildManager : MonoBehaviour
             baseSelected.turret = turretIstantiated;
             previewSystem.StopShowingPreview();
             baseSelected.turret.GetComponent<Turret>().range.SetActive(false);
-            baseSelected = null;
         }
     }
 }
