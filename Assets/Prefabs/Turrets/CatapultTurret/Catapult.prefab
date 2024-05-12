@@ -304,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6594343232099572298}
   turretType: 3
+  turretDamage: 20
   attackRange: 15
   turretRotationSpeed: 10
   isAOE: 1

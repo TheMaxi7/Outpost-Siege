@@ -9,13 +9,16 @@ public class Missile : MonoBehaviour
     [SerializeField] private float speed = 50f;
     [SerializeField] private GameObject impactEffect;
     [SerializeField] private float explosionRadius;
-    [SerializeField] private int damage;
+    [HideInInspector] public float damage;
 
     public void GetTarget(Transform _target)
     {
         target = _target;
     }
+    private void Start()
+    {
 
+    }
     private void Update()
     {
         if (target == null)

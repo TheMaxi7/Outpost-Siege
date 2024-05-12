@@ -13578,9 +13578,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1922730955}
-        m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
-        m_MethodName: ToggleSpawn
+      - m_Target: {fileID: 1922730954}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: UpgradeTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18078,7 +18078,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 493795133}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: SelectSniperTurret
+        m_MethodName: SelectCatapultTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -44319,9 +44319,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1922730955}
-        m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
-        m_MethodName: ToggleSpawn
+      - m_Target: {fileID: 1922730954}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SellTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59826,6 +59826,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   livesText: {fileID: 1576219674}
   coinsText: {fileID: 894208743}
+  turretRangeValue: {fileID: 953979664}
+  turretDamageValue: {fileID: 658528319}
+  star2: {fileID: 2047516919}
+  star3: {fileID: 1582462133}
+  sellValue: {fileID: 620929256}
+  upgradeCost: {fileID: 1659199847}
 --- !u!114 &1922730954
 MonoBehaviour:
   m_ObjectHideFlags: 0

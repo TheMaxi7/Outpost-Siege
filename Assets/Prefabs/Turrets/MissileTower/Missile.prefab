@@ -5011,8 +5011,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7248420356459023107}
   turretType: 2
+  turretDamage: 15
   attackRange: 8
   turretRotationSpeed: 5
+  turretLevel: 1
   isAOE: 1
   fireRate: 1
   bulletPrefab: {fileID: 1552339098034316, guid: c13874774436a6a4c85449cab6e14fa4,
@@ -5026,6 +5028,8 @@ MonoBehaviour:
   turretHead: {fileID: 4528818141007908}
   firePoint: {fileID: 4552130925665294}
   turretCost: 75
+  sellValue: 0
+  upgradeCost: 0
   canShoot: 0
   rangeIndicator: {fileID: 6147664295154894243}
   range: {fileID: 2242489557867459879}

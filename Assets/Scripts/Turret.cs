@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.Burst.CompilerServices;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class Turret : MonoBehaviour
 {
@@ -12,14 +14,17 @@ public class Turret : MonoBehaviour
     [Header("General")]
     [SerializeField] private Animator animator;
     [SerializeField] private int turretType;
-    [SerializeField] private float attackRange = 15f;
+    [SerializeField] public float turretDamage;
+    [SerializeField] public float attackRange = 15f;
     [SerializeField] private float turretRotationSpeed = 10f;
+    [HideInInspector] public int turretLevel = 1;
+
 
     [Header("Use bullets (Default)")]
     [SerializeField] private bool isAOE = false;
     [SerializeField] private float fireRate = 1f;
     private float fireCountdown = 0f;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] public GameObject bulletPrefab;
 
     [Header("Use laser")]
     [SerializeField] private ParticleSystem muzzleLaserEffect;
@@ -32,10 +37,12 @@ public class Turret : MonoBehaviour
     [SerializeField] private string enemyTag = "Enemy";
     [SerializeField] private Transform turretHead;
     [SerializeField] private Transform firePoint;
-    public int turretCost = 0;
+    [SerializeField] public int turretCost = 0;
+    [SerializeField] public int sellValue;
+    [SerializeField] public int upgradeCost;
     [HideInInspector] public bool canShoot = false;
     [SerializeField] private Image rangeIndicator;
-    public GameObject range;
+    [SerializeField] public GameObject range;
     [SerializeField] private GameObject muzzleEffect;
     
     //public GameObject domeIndicator;
@@ -50,10 +57,22 @@ public class Turret : MonoBehaviour
         rangeIndicator.rectTransform.sizeDelta = new Vector2(2 * attackRange, 2 * attackRange);
         //domeIndicator.transform.localScale = new Vector3(attackRange, attackRange, attackRange);
         rangeIndicator.enabled = true;
+
+        sellValue = (int)(turretCost * 0.7);
+        upgradeCost = (int)(turretCost * 1.3);
     }
 
     private void Update()
     {
+        rangeIndicator.rectTransform.sizeDelta = new Vector2(2 * attackRange, 2 * attackRange);
+        if (turretType == 1)
+            bulletPrefab.GetComponent<Bullet>().damage = turretDamage;
+        if (turretType == 2)
+            bulletPrefab.GetComponent<Missile>().damage = turretDamage;
+        if (turretType == 3)
+            bulletPrefab.GetComponent<CatapultProjectile>().damage = turretDamage;
+        if (turretType == 4)
+            turretDamage = damageOverTime;
 
         if (target == null)
         {

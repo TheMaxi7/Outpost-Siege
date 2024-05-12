@@ -88,4 +88,23 @@ public class BuildManager : MonoBehaviour
             baseSelected.turret.GetComponent<Turret>().range.SetActive(false);
         }
     }
+
+    public void UpgradeTurret()
+    {
+        if (baseSelected.turret.GetComponent<Turret>().upgradeCost <= UiManager.coinsCount)
+        {
+            UiManager.coinsCount -= baseSelected.turret.GetComponent<Turret>().upgradeCost;
+            baseSelected.turret.GetComponent<Turret>().attackRange *= 1.3f;
+            baseSelected.turret.GetComponent<Turret>().turretDamage *= 1.3f;
+            baseSelected.turret.GetComponent<Turret>().upgradeCost = (int)(baseSelected.turret.GetComponent<Turret>().upgradeCost * 1.4f);
+            baseSelected.turret.GetComponent<Turret>().sellValue = (int)(baseSelected.turret.GetComponent<Turret>().sellValue * 1.4f);
+        }
+
+    }
+    public void SellTurret()
+    {
+        UiManager.coinsCount += baseSelected.turret.GetComponent<Turret>().sellValue;
+        Destroy(baseSelected.turret);
+        baseSelected.isOccupied = false;
+    }
 }

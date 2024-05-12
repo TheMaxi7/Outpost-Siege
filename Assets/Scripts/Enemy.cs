@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        
+        Debug.Log(amount);
         healthBar.fillAmount = health / startingHealth;
         if (health <= 0)
         {

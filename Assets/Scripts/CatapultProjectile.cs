@@ -8,7 +8,7 @@ public class CatapultProjectile : MonoBehaviour
     private Transform target;
     [SerializeField] private GameObject impactEffect;
     [SerializeField] private float explosionRadius;
-    [SerializeField] private int damage;
+    [HideInInspector] public float damage;
 
     public void GetTarget(Transform _target)
     {
@@ -19,6 +19,7 @@ public class CatapultProjectile : MonoBehaviour
     {
         Vector3 Vo = CalculateCatapult(target.transform.position, transform.position, 1);
         transform.GetComponent<Rigidbody>().velocity = Vo;
+    
     }
     private void Update()
     {
