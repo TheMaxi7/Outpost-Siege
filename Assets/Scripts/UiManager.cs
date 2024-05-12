@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
     public static int livesCount = 20;
-    public static int coinsCount = 300;
+    public static int coinsCount = 50;
+    public static int totalCoinsInGame;
 
     [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private TextMeshProUGUI coinsText;
@@ -16,18 +18,32 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject star3;
     [SerializeField] private TextMeshProUGUI sellValue;
     [SerializeField] private TextMeshProUGUI upgradeCost;
+    [SerializeField] private Sprite basicEnemySprite;
+    [SerializeField] private Sprite fastEnemySprite;
+    [SerializeField] private Sprite strongEnemySprite;
+    [SerializeField] private Image waveEnemyTypeIcon;
+    [SerializeField] private TextMeshProUGUI enemiesInNextWaveValue;
+    [SerializeField] private Sprite nextEnemySprite;
+    private Spawner[] spawners;
 
     void Start()
-    {
+    {   
+        spawners = Object.FindObjectsOfType<Spawner>();
+        SetNextWaveIndicator();
+        totalCoinsInGame = coinsCount;
         livesText.text = "" + livesCount;
         coinsText.text = "" + coinsCount;
+        enemiesInNextWaveValue.text = "x " + WaveManager.nextWaveEnemies* spawners.Length;
+        waveEnemyTypeIcon.sprite = nextEnemySprite;
+        
     }
 
     void Update()
     {
         livesText.text = livesCount.ToString();
         coinsText.text = coinsCount.ToString();
-
+        enemiesInNextWaveValue.text = "x " + WaveManager.nextWaveEnemies* spawners.Length;
+        waveEnemyTypeIcon.sprite = nextEnemySprite;
         if (BuildManager.baseSelected != null)
         {
             if (BuildManager.baseSelected.isOccupied)
@@ -41,7 +57,8 @@ public class UiManager : MonoBehaviour
 
         }
 
-
+        SetNextWaveIndicator();
+        
     }
 
     void GetTurretLevel()
@@ -57,6 +74,22 @@ public class UiManager : MonoBehaviour
         {
             star2.SetActive(true);
             star3.SetActive(true);
+        }
+    }
+
+    void SetNextWaveIndicator()
+    {
+        switch (WaveManager.nextEnemyType)
+        {
+            case 1:
+                nextEnemySprite = basicEnemySprite;
+                break;
+            case 2:
+                nextEnemySprite = fastEnemySprite;
+                break;
+            case 3:
+                nextEnemySprite = strongEnemySprite;
+                break;
         }
     }
 }

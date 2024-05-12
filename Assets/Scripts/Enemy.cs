@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     public float health;
     [SerializeField] private float startingHealth;
-    [SerializeField] private int value;
+    [SerializeField] public int value;
     [SerializeField] private int moveSpeed = 5;
     private int movementSpeed;
     [SerializeField] private GameObject deathEffect;
@@ -68,11 +68,11 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        Debug.Log(amount);
         healthBar.fillAmount = health / startingHealth;
         if (health <= 0)
         {
             UiManager.coinsCount+=value;
+            UiManager.totalCoinsInGame += value;
             Die();
         }
         else

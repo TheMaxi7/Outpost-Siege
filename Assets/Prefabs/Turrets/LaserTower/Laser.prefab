@@ -133,8 +133,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8200163104096930240}
   turretType: 4
+  turretDamage: 0
   attackRange: 9
   turretRotationSpeed: 10
+  turretLevel: 1
   isAOE: 0
   fireRate: 1
   bulletPrefab: {fileID: 0}
@@ -146,7 +148,9 @@ MonoBehaviour:
   enemyTag: Enemy
   turretHead: {fileID: 6990025965381987122}
   firePoint: {fileID: 3691423785162142008}
-  turretCost: 0
+  turretCost: 40
+  sellValue: 0
+  upgradeCost: 0
   canShoot: 0
   rangeIndicator: {fileID: 5112371945996827161}
   range: {fileID: 5065873434953132869}

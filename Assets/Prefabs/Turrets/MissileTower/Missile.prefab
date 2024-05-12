@@ -5011,7 +5011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7248420356459023107}
   turretType: 2
-  turretDamage: 15
+  turretDamage: 10
   attackRange: 8
   turretRotationSpeed: 5
   turretLevel: 1
@@ -5027,7 +5027,7 @@ MonoBehaviour:
   enemyTag: Enemy
   turretHead: {fileID: 4528818141007908}
   firePoint: {fileID: 4552130925665294}
-  turretCost: 75
+  turretCost: 30
   sellValue: 0
   upgradeCost: 0
   canShoot: 0

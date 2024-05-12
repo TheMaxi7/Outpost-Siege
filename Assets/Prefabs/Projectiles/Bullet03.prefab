@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5,
     type: 3}
-  explosionRadius: 10
-  damage: 50
+  explosionRadius: 5
+  damage: 20
 --- !u!54 &2112882262802824884
 Rigidbody:
   m_ObjectHideFlags: 0

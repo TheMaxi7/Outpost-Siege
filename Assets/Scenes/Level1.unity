@@ -59832,6 +59832,12 @@ MonoBehaviour:
   star3: {fileID: 1582462133}
   sellValue: {fileID: 620929256}
   upgradeCost: {fileID: 1659199847}
+  basicEnemySprite: {fileID: 21300000, guid: 88689c270f97eb14aafa23a1c16ac773, type: 3}
+  fastEnemySprite: {fileID: 21300000, guid: 76e7c05112135cb40948036968d2372f, type: 3}
+  strongEnemySprite: {fileID: 21300000, guid: adcb1d7add6ed564799e97e4cb1e5b1d, type: 3}
+  waveEnemyTypeIcon: {fileID: 0}
+  enemiesInNextWaveValue: {fileID: 0}
+  nextEnemySprite: {fileID: 0}
 --- !u!114 &1922730954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59868,6 +59874,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9952c63664fcf1047888cceda74fddc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoints: []
+  basicEnemyPrefab: {fileID: 8933163626077756281, guid: df8ec3294186fbc4c8f758011c052ff5,
+    type: 3}
+  fastEnemyPrefab: {fileID: 6259610659140884171, guid: 280c145340bad7a4799844763ccdde5b,
+    type: 3}
+  bigEnemyPrefab: {fileID: 5972292524783447537, guid: 1cf58948c161c304ba4fbd37263d6269,
+    type: 3}
 --- !u!4 &1922730956
 Transform:
   m_ObjectHideFlags: 0

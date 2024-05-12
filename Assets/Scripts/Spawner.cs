@@ -9,7 +9,10 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject basicEnemyPrefab;
     [SerializeField] private GameObject fastEnemyPrefab;
     [SerializeField] private GameObject bigEnemyPrefab;
+    private Spawner[] spawners;
     private GameObject enemyToIstantiate;
+    private int enemyValue;
+    private int enemyType;
 
     private Transform spawnLocation;
     //Something from spawnmanager to decide what to spawn
@@ -29,29 +32,17 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        for (int i = 0; i < WaveManager.waveNumber; i++)
+        for (int i = 0; i < WaveManager.enemiesInWave; i++)
         {
             SpawnEnemy();
             yield return new WaitForSeconds(1f);
         }
-        
     }
 
     void SpawnEnemy()
     {
-        switch (WaveManager.waveType)
-        {
-            case 0:
-                enemyToIstantiate = basicEnemyPrefab;
-                break;
-            case 1:
-                enemyToIstantiate = fastEnemyPrefab;
-                break;
-            case 2:
-                enemyToIstantiate = bigEnemyPrefab;
-                break;
-        }
-        GameObject enemyInstance = Instantiate(enemyToIstantiate, spawnLocation.position, enemyToIstantiate.transform.rotation);
+        GameObject enemyInstance = Instantiate(WaveManager.enemyToIstantiate, spawnLocation.position, WaveManager.enemyToIstantiate.transform.rotation);
         enemyInstance.GetComponent<Enemy>().roadToExit = waypoints;
     }
+
 }

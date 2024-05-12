@@ -357,6 +357,7 @@ MonoBehaviour:
   turretDamage: 10
   attackRange: 5
   turretRotationSpeed: 10
+  turretLevel: 1
   isAOE: 0
   fireRate: 1
   bulletPrefab: {fileID: 1833988619539146, guid: 9318a11cd670f3d4f924ff92fe7b0c77,
@@ -369,7 +370,9 @@ MonoBehaviour:
   enemyTag: Enemy
   turretHead: {fileID: 4722236510932744}
   firePoint: {fileID: 4703932692914808}
-  turretCost: 50
+  turretCost: 10
+  sellValue: 0
+  upgradeCost: 0
   canShoot: 0
   rangeIndicator: {fileID: 4133852233092286991}
   range: {fileID: 1765104542767487913}
