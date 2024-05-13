@@ -68,7 +68,7 @@ public class Missile : MonoBehaviour
 
     void Damage(Transform enemy)
     {
-        enemy.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+        enemy.gameObject.GetComponent<Enemy>().TakeDamage(damage * 0.7f);
     }
 
 }

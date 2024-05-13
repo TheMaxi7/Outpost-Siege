@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class BuildManager : MonoBehaviour
 {
@@ -81,6 +82,8 @@ public class BuildManager : MonoBehaviour
             GameObject turretIstantiated = Instantiate(turretToBuild, baseSelected.transform.position + Base.offset, baseSelected.transform.rotation);
             turretIstantiated.GetComponent<Turret>().canShoot = true;
             UiManager.coinsCount -= turretToBuild.GetComponent<Turret>().turretCost;
+            UiManager.totalMoneyConvertedInDps += turretToBuild.GetComponent<Turret>().turretCost;
+            
             Shop.isTurretSelected = false;
             baseSelected.isOccupied = true;
             baseSelected.turret = turretIstantiated;
@@ -91,9 +94,11 @@ public class BuildManager : MonoBehaviour
 
     public void UpgradeTurret()
     {
-        if (baseSelected.turret.GetComponent<Turret>().upgradeCost <= UiManager.coinsCount)
+        if ((baseSelected.turret.GetComponent<Turret>().upgradeCost <= UiManager.coinsCount) && (baseSelected.turret.GetComponent<Turret>().turretLevel < 3))
         {
             UiManager.coinsCount -= baseSelected.turret.GetComponent<Turret>().upgradeCost;
+            UiManager.totalMoneyConvertedInDps += turretToBuild.GetComponent<Turret>().upgradeCost;
+            baseSelected.turret.GetComponent<Turret>().turretLevel += 1;
             baseSelected.turret.GetComponent<Turret>().attackRange *= 1.3f;
             baseSelected.turret.GetComponent<Turret>().turretDamage *= 1.3f;
             baseSelected.turret.GetComponent<Turret>().upgradeCost = (int)(baseSelected.turret.GetComponent<Turret>().upgradeCost * 1.4f);

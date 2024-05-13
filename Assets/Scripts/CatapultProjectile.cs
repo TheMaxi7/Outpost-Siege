@@ -64,7 +64,7 @@ public class CatapultProjectile : MonoBehaviour
 
     void Damage(Transform enemy)
     {
-        enemy.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+        enemy.gameObject.GetComponent<Enemy>().TakeDamage(damage*0.7f);
     }
 
     Vector3 CalculateCatapult(Vector3 target, Vector3 origen, float time)

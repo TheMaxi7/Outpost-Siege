@@ -100,7 +100,7 @@ MonoBehaviour:
   speed: 70
   impactEffect: {fileID: 5112403345868107898, guid: 6f34ef0d986e9db4199cf75805f79753,
     type: 3}
-  explosionRadius: 30
+  explosionRadius: 8
   damage: 500
 --- !u!1001 &177083727193952645
 PrefabInstance:

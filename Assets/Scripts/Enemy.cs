@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     private CapsuleCollider coll;
     [SerializeField] private Image healthBar;
+    private bool isDead;
 
     public Transform[] roadToExit;
     private Transform nextWaypoint;
@@ -69,10 +70,8 @@ public class Enemy : MonoBehaviour
     {
         health -= amount;
         healthBar.fillAmount = health / startingHealth;
-        if (health <= 0)
+        if ((health <= 0) && !isDead)
         {
-            UiManager.coinsCount+=value;
-            UiManager.totalCoinsInGame += value;
             Die();
         }
         else
@@ -81,10 +80,13 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        UiManager.coinsCount += value;
+        isDead = true;
         coll.enabled = false;
         movementSpeed = 0;
         animator.SetTrigger("Die");
         Destroy(gameObject, 1.5f);
+        
     }
     
 }

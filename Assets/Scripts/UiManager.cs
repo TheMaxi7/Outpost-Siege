@@ -8,7 +8,7 @@ public class UiManager : MonoBehaviour
 {
     public static int livesCount = 20;
     public static int coinsCount = 50;
-    public static int totalCoinsInGame;
+    public static int totalMoneyConvertedInDps;
 
     [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private TextMeshProUGUI coinsText;
@@ -24,16 +24,18 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Image waveEnemyTypeIcon;
     [SerializeField] private TextMeshProUGUI enemiesInNextWaveValue;
     [SerializeField] private Sprite nextEnemySprite;
+    [SerializeField] private TextMeshProUGUI waveNumber;
     private Spawner[] spawners;
 
     void Start()
     {   
         spawners = Object.FindObjectsOfType<Spawner>();
         SetNextWaveIndicator();
-        totalCoinsInGame = coinsCount;
+        totalMoneyConvertedInDps = 0;
         livesText.text = "" + livesCount;
         coinsText.text = "" + coinsCount;
         enemiesInNextWaveValue.text = "x " + WaveManager.nextWaveEnemies* spawners.Length;
+        waveNumber.text = WaveManager.waveNumber + "/30";
         waveEnemyTypeIcon.sprite = nextEnemySprite;
         
     }
@@ -42,6 +44,7 @@ public class UiManager : MonoBehaviour
     {
         livesText.text = livesCount.ToString();
         coinsText.text = coinsCount.ToString();
+        waveNumber.text = WaveManager.waveNumber + "/30";
         enemiesInNextWaveValue.text = "x " + WaveManager.nextWaveEnemies* spawners.Length;
         waveEnemyTypeIcon.sprite = nextEnemySprite;
         if (BuildManager.baseSelected != null)
