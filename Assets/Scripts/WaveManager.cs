@@ -38,7 +38,7 @@ public class WaveManager : MonoBehaviour
         bigEnemyPrefab.GetComponent<Enemy>().health = 450f;
         timer = 5f;
         Time.timeScale = 1f;
-        waveNumber = 25;
+        
     }
     private void Update()
     {

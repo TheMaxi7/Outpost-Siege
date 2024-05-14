@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     private float distanceToTarget;
-
+    private float distanceToEndWaypoint;
     public float health;
     [SerializeField] private float startingHealth;
     [SerializeField] public int value;
@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     private bool isDead;
 
     public Transform[] roadToExit;
+    private bool hasEscaped;
+    private Transform endWaypoint;
     private Transform nextWaypoint;
     private int waypointCounter = 0;
     private Vector3 moveDirection;
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         coll = GetComponent<CapsuleCollider>();
+        endWaypoint = roadToExit[roadToExit.Length - 1];
         movementSpeed = 0;
         nextWaypoint = roadToExit[0];
         startingHealth = health;
@@ -41,6 +44,7 @@ public class Enemy : MonoBehaviour
         transform.position += moveDirection * movementSpeed * Time.deltaTime;
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
         distanceToTarget = Vector3.Distance(transform.position, nextWaypoint.position);
+        distanceToEndWaypoint = Vector3.Distance(transform.position, endWaypoint.position);
         if (distanceToTarget <= 1)
         {
             NextWaypoint();
@@ -48,6 +52,13 @@ public class Enemy : MonoBehaviour
             lookRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
 
+        }
+
+        if ((distanceToEndWaypoint <= 1) && (!hasEscaped))
+        {
+            hasEscaped = true;
+            UiManager.livesCount--;
+            Destroy(gameObject, 1f);
         }
     }
 

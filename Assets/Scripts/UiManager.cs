@@ -9,15 +9,9 @@ public class UiManager : MonoBehaviour
     public static int livesCount = 20;
     public static int coinsCount = 50;
     public static int totalMoneyConvertedInDps;
-
+    [Header("General Game UI")]
     [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private TextMeshProUGUI coinsText;
-    [SerializeField] private TextMeshProUGUI turretRangeValue;
-    [SerializeField] private TextMeshProUGUI turretDamageValue;
-    [SerializeField] private GameObject star2;
-    [SerializeField] private GameObject star3;
-    [SerializeField] private TextMeshProUGUI sellValue;
-    [SerializeField] private TextMeshProUGUI upgradeCost;
     [SerializeField] private Sprite basicEnemySprite;
     [SerializeField] private Sprite fastEnemySprite;
     [SerializeField] private Sprite strongEnemySprite;
@@ -25,6 +19,25 @@ public class UiManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enemiesInNextWaveValue;
     [SerializeField] private Sprite nextEnemySprite;
     [SerializeField] private TextMeshProUGUI waveNumber;
+
+    [Header("Turret UI")]
+    [SerializeField] private TextMeshProUGUI turretRangeValue;
+    [SerializeField] private TextMeshProUGUI turretDamageValue;
+    [SerializeField] private GameObject star2;
+    [SerializeField] private GameObject star3;
+    [SerializeField] private TextMeshProUGUI sellValue;
+    [SerializeField] private TextMeshProUGUI upgradeCost;
+
+    [Header("Shop UI")]
+    [SerializeField] private TextMeshProUGUI baseTurretPriceText;
+    [SerializeField] private TextMeshProUGUI missileTurretPriceText;
+    [SerializeField] private TextMeshProUGUI catapultTurretPriceText;
+    [SerializeField] private TextMeshProUGUI laserTurretPriceText;
+    [SerializeField] private GameObject basicTurretPrefab;
+    [SerializeField] private GameObject missileTurretPrefab;
+    [SerializeField] private GameObject laserTurretPrefab;
+    [SerializeField] private GameObject catapultTurretPrefab;
+
     private Spawner[] spawners;
 
     void Start()
@@ -37,7 +50,12 @@ public class UiManager : MonoBehaviour
         enemiesInNextWaveValue.text = "x " + WaveManager.nextWaveEnemies* spawners.Length;
         waveNumber.text = WaveManager.waveNumber + "/30";
         waveEnemyTypeIcon.sprite = nextEnemySprite;
-        
+
+        baseTurretPriceText.text = basicTurretPrefab.GetComponent<Turret>().turretCost.ToString() +"$";
+        missileTurretPriceText.text = missileTurretPrefab.GetComponent<Turret>().turretCost.ToString() + "$";
+        catapultTurretPriceText.text = catapultTurretPrefab.GetComponent<Turret>().turretCost.ToString() + "$";
+        laserTurretPriceText.text = laserTurretPrefab.GetComponent<Turret>().turretCost.ToString() + "$";
+
     }
 
     void Update()
