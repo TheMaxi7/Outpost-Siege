@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-694888787016700628
+--- !u!114 &-3849726676506409089
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TransparentMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: e5a1784e5ec8c4e47a39d17a8ed1369d,
+  m_Name: Shader Graphs_IceEffect
+  m_Shader: {fileID: -6465566751694194690, guid: 5d37ae36abee3b24eb7d17ffa16c8018,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -37,6 +37,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Base_Map:
+        m_Texture: {fileID: 2800000, guid: b890b34e818e786489a02b0642ff6ba2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_8742169b0cc04a4f96dc72b870192d82_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: b890b34e818e786489a02b0642ff6ba2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -51,8 +59,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Fresnel_Power: 1.9
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0.3333333}
+    - _BaseColor: {r: 0, g: 1, b: 0.018627405, a: 0}
+    - _Freeze_Color: {r: 0, g: 1, b: 0.12042332, a: 1}
   m_BuildTextureStacks: []
