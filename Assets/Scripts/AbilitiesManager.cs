@@ -15,7 +15,7 @@ public class AbilitiesManager : MonoBehaviour
     [SerializeField] private Image ability1Indicator;
     [SerializeField] private GameObject bomb1Prefab;
     [SerializeField] private float countdownAbility1;
-    [SerializeField] private int costAbility1;
+    public static int costAbility1;
     [SerializeField] private bool isAbility1Ready = true;
     [SerializeField] private Image cdOverlay1;
 
@@ -25,7 +25,7 @@ public class AbilitiesManager : MonoBehaviour
     [SerializeField] private Image ability2Indicator;
     [SerializeField] private GameObject bomb2Prefab;
     [SerializeField] private float countdownAbility2;
-    [SerializeField] private int costAbility2;
+    public static int costAbility2;
     [SerializeField] private bool isAbility2Ready = true;
     [SerializeField] private Image cdOverlay2;
 
@@ -34,7 +34,7 @@ public class AbilitiesManager : MonoBehaviour
     [SerializeField] private Image ability3Indicator;
     [SerializeField] private GameObject bomb3Prefab;
     [SerializeField] private float countdownAbility3;
-    [SerializeField] private int costAbility3;
+    public static int costAbility3;
     [SerializeField] private bool isAbility3Ready = true;
     [SerializeField] private Image cdOverlay3;
 

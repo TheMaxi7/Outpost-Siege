@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_IceEffect
+  m_Name: FresnelAbilityMat
   m_Shader: {fileID: -6465566751694194690, guid: 5d37ae36abee3b24eb7d17ffa16c8018,
     type: 3}
   m_Parent: {fileID: 0}
@@ -63,6 +63,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _BaseColor: {r: 0, g: 1, b: 0.018627405, a: 0}
+    - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _Freeze_Color: {r: 0, g: 1, b: 0.12042332, a: 1}
+    - _FresnelColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

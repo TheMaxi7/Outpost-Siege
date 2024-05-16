@@ -10,6 +10,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] private GameObject impactEffect;
     [SerializeField] private float explosionRadius;
     [SerializeField] private int damage;
+    [SerializeField] private int bombType; //standard/ice/venom
     public void GetTargetPoint(Vector3 _target)
     {
         target = _target;
@@ -59,7 +60,12 @@ public class Bomb : MonoBehaviour
         {
             if (collider.tag == "Enemy")
             {
-                Damage(collider.transform);
+                if (bombType == 1)
+                    Damage(collider.transform);
+                if (bombType == 2)
+                    Freeze(collider.transform);
+                if (bombType == 3)
+                    Intoxicate(collider.transform);
             }
         }
     }
@@ -67,5 +73,15 @@ public class Bomb : MonoBehaviour
     void Damage(Transform enemy)
     {
         enemy.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+    }
+
+    void Freeze(Transform enemy)
+    {
+        enemy.gameObject.GetComponent<Enemy>().Freeze();
+    }
+
+    void Intoxicate(Transform enemy)
+    {
+        enemy.gameObject.GetComponent<Enemy>().Intoxicate();
     }
 }

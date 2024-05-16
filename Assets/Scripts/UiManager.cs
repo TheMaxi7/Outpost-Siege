@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UiManager : MonoBehaviour
 {
     public static int livesCount = 20;
-    public static int coinsCount = 50;
+    public static int coinsCount = 800;
     public static int totalMoneyConvertedInDps;
     [Header("General Game UI")]
     [SerializeField] private TextMeshProUGUI livesText;
@@ -38,6 +38,12 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject laserTurretPrefab;
     [SerializeField] private GameObject catapultTurretPrefab;
 
+    [Header("Abilities UI")]
+    [SerializeField] private TextMeshProUGUI ability1Cost;
+    [SerializeField] private TextMeshProUGUI ability2Cost;
+    [SerializeField] private TextMeshProUGUI ability3Cost;
+
+
     private Spawner[] spawners;
 
     void Start()
@@ -51,11 +57,14 @@ public class UiManager : MonoBehaviour
         waveNumber.text = WaveManager.waveNumber + "/30";
         waveEnemyTypeIcon.sprite = nextEnemySprite;
 
-        baseTurretPriceText.text = basicTurretPrefab.GetComponent<Turret>().turretCost.ToString() +"$";
-        missileTurretPriceText.text = missileTurretPrefab.GetComponent<Turret>().turretCost.ToString() + "$";
-        catapultTurretPriceText.text = catapultTurretPrefab.GetComponent<Turret>().turretCost.ToString() + "$";
-        laserTurretPriceText.text = laserTurretPrefab.GetComponent<Turret>().turretCost.ToString() + "$";
+        baseTurretPriceText.text = basicTurretPrefab.GetComponent<Turret>().turretCost.ToString() +" $";
+        missileTurretPriceText.text = missileTurretPrefab.GetComponent<Turret>().turretCost.ToString() + " $";
+        catapultTurretPriceText.text = catapultTurretPrefab.GetComponent<Turret>().turretCost.ToString() + " $";
+        laserTurretPriceText.text = laserTurretPrefab.GetComponent<Turret>().turretCost.ToString() + " $";
 
+        ability1Cost.text = AbilitiesManager.costAbility1.ToString() + " $";
+        ability2Cost.text = AbilitiesManager.costAbility2.ToString() + " $";
+        ability3Cost.text = AbilitiesManager.costAbility3.ToString() + " $";
     }
 
     void Update()

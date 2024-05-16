@@ -11,8 +11,8 @@ public class Enemy : MonoBehaviour
     public float health;
     [SerializeField] private float startingHealth;
     [SerializeField] public int value;
-    [SerializeField] private int moveSpeed = 5;
-    private int movementSpeed;
+    [SerializeField] private float moveSpeed = 5;
+    private float movementSpeed;
     [SerializeField] private GameObject deathEffect;
     private Animator animator;
     private CapsuleCollider coll;
@@ -26,16 +26,21 @@ public class Enemy : MonoBehaviour
     private int waypointCounter = 0;
     private Vector3 moveDirection;
     private Quaternion lookRotation;
+    private SkinnedMeshRenderer[] bodyParts;
+
+    private float poisonTimeEffect = 2f;
+    private float freezeTimeEffect = 5f;
     private void Start()
     {
-        coll = GetComponent<CapsuleCollider>();
+        bodyParts = GetComponentsInChildren<SkinnedMeshRenderer>();
         endWaypoint = roadToExit[roadToExit.Length - 1];
+        coll = GetComponent<CapsuleCollider>();
         movementSpeed = 0;
         nextWaypoint = roadToExit[0];
         startingHealth = health;
         moveDirection = (nextWaypoint.position - transform.position).normalized;
         lookRotation = Quaternion.LookRotation(moveDirection);
-        animator = GetComponent<Animator>();    
+        animator = GetComponent<Animator>();
         StartCoroutine(StartMoving());
     }
 
@@ -66,7 +71,7 @@ public class Enemy : MonoBehaviour
     {
         waypointCounter++;
         if (waypointCounter < roadToExit.Length)
-        {  
+        {
             nextWaypoint = roadToExit[waypointCounter];
         }
     }
@@ -97,7 +102,61 @@ public class Enemy : MonoBehaviour
         movementSpeed = 0;
         animator.SetTrigger("Die");
         Destroy(gameObject, 1.5f);
-        
+
     }
-    
+    public void Freeze()
+    {
+        StartCoroutine(Frozen());
+    }
+
+    public void Intoxicate()
+    {
+        StartCoroutine(Poison());
+    }
+
+    IEnumerator Poison()
+    {
+        movementSpeed = moveSpeed/2;
+        animator.speed = 0.5f;
+        int n = 0;
+        while (n < 4)
+        {
+            float elapsedTime = 0;
+            while (elapsedTime < poisonTimeEffect)
+            {
+                elapsedTime += Time.deltaTime;
+                foreach (var part in bodyParts)
+                {
+                    part.material.SetColor("_BaseColor", new Color(Mathf.Lerp(38 * 0.005f, 0, elapsedTime / poisonTimeEffect), Mathf.Lerp(41 * 0.005f, 0, elapsedTime / poisonTimeEffect), 0, 0));
+                    part.material.SetColor("_FresnelColor", new Color(Mathf.Lerp(3 * 0.005f, 0, elapsedTime / poisonTimeEffect), Mathf.Lerp(255 * 0.005f, 0, elapsedTime / poisonTimeEffect), 0, Mathf.Lerp(255 * 0.005f, 0, elapsedTime / poisonTimeEffect)));
+
+                }
+                yield return null;
+            }
+            TakeDamage(15f);
+            n++;
+        }
+        movementSpeed = moveSpeed;
+        animator.speed = 1;
+    }
+
+    public IEnumerator Frozen()
+    {
+        movementSpeed = 0;
+        animator.enabled = false;
+        float elapsedTime = 0;
+        while (elapsedTime < freezeTimeEffect)
+        {
+            elapsedTime += Time.deltaTime;
+            foreach (var part in bodyParts)
+            {
+                part.material.SetColor("_FresnelColor", new Color(0, Mathf.Lerp(255 * 0.005f, 0, elapsedTime / poisonTimeEffect), Mathf.Lerp(255 * 0.005f, 0, elapsedTime / poisonTimeEffect), Mathf.Lerp(255 * 0.005f, 0, elapsedTime / freezeTimeEffect)));
+                part.material.SetColor("_BaseColor", new Color(0, Mathf.Lerp(72 * 0.005f, 0, elapsedTime / poisonTimeEffect), Mathf.Lerp(87 * 0.005f, 0, elapsedTime / poisonTimeEffect), Mathf.Lerp(255 * 0.005f, 0, elapsedTime / freezeTimeEffect)));
+
+            }
+            yield return null;
+        }
+        movementSpeed = moveSpeed;
+        animator.enabled = true;
+    }
 }
